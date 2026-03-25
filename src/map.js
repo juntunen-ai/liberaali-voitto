@@ -6,7 +6,10 @@ export function initMap(geo, onSelectArea) {
   const g = svg.append('g');
   const container = document.getElementById('map-container');
   const { width, height } = container.getBoundingClientRect();
-  const projection = d3.geoMercator().fitExtent([[20, 20], [width - 20, height - 20]], geo);
+  // Use geoIdentity (Cartesian) to avoid D3 spherical winding issues with this GeoJSON.
+  // reflectY flips latitude so north is up.
+  const projection = d3.geoIdentity().reflectY(true)
+    .fitExtent([[20, 20], [width - 20, height - 20]], geo);
   const pathGen = d3.geoPath().projection(projection);
 
   svg.call(
