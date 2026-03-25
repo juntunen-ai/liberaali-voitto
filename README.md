@@ -1,16 +1,28 @@
-# React + Vite
+# Liberaali voitto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interaktiivinen vaalidata-analyysi — konversiokartta ja äänestystilastot.
 
-Currently, two official plugins are available:
+## Nykyinen sisältö
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Konversiokartta · Helsinki · Eduskuntavaalit 2023** — SVG-pohjainen koropleettkartta, joka näyttää äänestysalueiden konversiopisteet ja oikeistopotentiaalin
 
-## React Compiler
+## Tekninen toteutus
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Yksittäinen `index.html`-tiedosto — ei buildityökaluja, ei ulkoisia riippuvuuksia. Data on upotettu GeoJSON-muodossa suoraan HTML:ään.
 
-## Expanding the ESLint configuration
+## Kehitys
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# Avaa paikallisesti
+open index.html
+
+# Tai käytä pientä lokaalia serveriä
+python3 -m http.server 8080
+```
+
+Jokainen `git push` → automaattinen deploy Netlifyyn.
+
+## Data
+
+- `data/` — tuleva hakemisto purkautuville GeoJSON-datatiedostoille
+- Äänestysdata: Oikeusministeriö / tulopalvelu.vaalit.fi

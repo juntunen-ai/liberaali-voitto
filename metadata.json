@@ -1,0 +1,5 @@
+{
+  "name": "Helsinki Election 2023 Analysis",
+  "description": "Election analysis web app that uses data from the 2023 Finnish parliamentary elections, focusing on the Helsinki district.",
+  "requestFramePermissions": []
+}
