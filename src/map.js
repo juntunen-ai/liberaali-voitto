@@ -4,7 +4,9 @@ import { getColor } from './modes.js';
 export function initMap(geo, onSelectArea) {
   const svg = d3.select('#map');
   const g = svg.append('g');
-  const projection = d3.geoMercator().fitExtent([[20,20],[900,680]], geo);
+  const container = document.getElementById('map-container');
+  const { width, height } = container.getBoundingClientRect();
+  const projection = d3.geoMercator().fitExtent([[20, 20], [width - 20, height - 20]], geo);
   const pathGen = d3.geoPath().projection(projection);
 
   svg.call(
@@ -28,6 +30,13 @@ export function initMap(geo, onSelectArea) {
       '<h2>Valitse äänestysalue</h2>' +
       '<p class="placeholder">Klikkaa kartalta aluetta nähdäksesi konversiopisteet, äänestystiedot, puoluejakauman ja top 5 ehdokkaat.</p>';
     document.querySelectorAll('.rank-item').forEach(el => el.classList.remove('selected'));
+  });
+
+  // Re-fit projection on window resize
+  window.addEventListener('resize', () => {
+    const { width: w, height: h } = container.getBoundingClientRect();
+    projection.fitExtent([[20, 20], [w - 20, h - 20]], geo);
+    areas.attr('d', pathGen);
   });
 
   return areas;
