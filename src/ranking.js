@@ -11,12 +11,12 @@ function getRankValue(p, mode) {
 }
 
 function getRankColor(val, mode) {
-  if (mode === 'score')  return val>=68?'#166534':val>=56?'#15803d':val>=50?'#ca8a04':'#c2410c';
+  if (mode === 'score')  return val>=91?'#166534':val>=87?'#15803d':val>=84?'#ca8a04':'#c2410c';
   if (mode === 'pool')   return val>=65?'#dbeafe':val>=45?'#93c5fd':val>=35?'#3b82f6':'#1d4ed8';
   if (mode === 'nukk')   return val>=38?'#92400e':val>=22?'#d97706':val>=15?'#fbbf24':'#fde047';
   if (mode === 'libe')   return val>=1.4?'#5b21b6':val>=0.8?'#7c3aed':val>=0.5?'#a78bfa':'#ddd6fe';
   if (mode === 'winner') return PARTY_COLORS[val] || '#666';
-  if (mode === 'all')    return val>=86?'#15803d':val>=83?'#22c55e':val>=79?'#86efac':val>=76?'#fde047':'#fef3c7';
+  if (mode === 'all')    return val>=91?'#15803d':val>=89?'#22c55e':val>=87?'#86efac':val>=84?'#fde047':'#fef3c7';
   return '#888';
 }
 

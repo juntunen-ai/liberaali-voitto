@@ -6,7 +6,7 @@ export const PARTY_COLORS = {
 };
 
 // Score mode: party color blended with dark background by conversion potential
-const scoreIntensity = d3.scaleLinear().domain([65, 78, 88]).range([0.25, 0.6, 1.0]).clamp(true);
+const scoreIntensity = d3.scaleLinear().domain([80, 87, 93]).range([0.25, 0.6, 1.0]).clamp(true);
 
 const poolColor = d3.scaleLinear()
   .domain([20,40,60,80])
@@ -24,17 +24,26 @@ const libeColor = d3.scaleLinear()
   .clamp(true);
 
 const allColor = d3.scaleLinear()
-  .domain([72,76,79,83,86,88])
+  .domain([80,84,87,89,91,93])
   .range(['#fef3c7','#fde047','#86efac','#22c55e','#15803d','#052e16'])
   .clamp(true);
 
+// Conversion formula: 55% pool + 20% nukk + 25% untapped
 export function scoreAll(p) {
   if (!p || !p.aan || p.aan < 100) return null;
   const oik = p.oik || 1, aan = p.aan, libe = p.LIBE || 0, nukk = p.nukk || 0;
   const pool = (aan - libe) / oik * 100;
   const nuk  = nukk / oik * 100;
   const untap = pool - (libe / oik * 100);
-  return Math.min(pool/70*40, 40) + Math.min(nuk/45*35, 35) + Math.min(untap/70*25, 25);
+  return Math.min(pool/70*55, 55) + Math.min(nuk/45*20, 20) + Math.min(untap/70*25, 25);
+}
+
+// Recompute p.score for all features using the current formula
+export function recomputeScores(features) {
+  for (const f of features) {
+    const s = scoreAll(f.properties);
+    if (s != null) f.properties.score = Math.round(s * 10) / 10;
+  }
 }
 
 function partyScoreColor(p) {
@@ -61,7 +70,7 @@ export const LEGEND_ITEMS = {
   nukk:   [['≥38 %','#ba5f09'],['30–38 %','#e78a08'],['22–30 %','#f8ae17'],['15–22 %','#fccf35'],['<15 %','#fdec85']],
   libe:   [['≥1.4 %','#44188d'],['1.1–1.4 %','#6b2dd1'],['0.8–1.1 %','#9162f3'],['0.5–0.8 %','#c2b0fc'],['<0.5 %','#e9e4fe']],
   winner: [['KOK','#1a56c4'],['SDP','#E63946'],['VAS','#C41E3A'],['PS','#d4a800'],['VIHR','#2DC653']],
-  all:    [['≥86 pistettä','#0d5729'],['83–86','#1ba24d'],['79–83','#54da85'],['76–79','#c1e779'],['<76','#fde987']],
+  all:    [['≥91 pistettä','#0d5729'],['89–91','#1ba24d'],['87–89','#54da85'],['84–87','#c1e779'],['<84','#fde987']],
 };
 
 export const SUBTITLES = {
@@ -70,7 +79,7 @@ export const SUBTITLES = {
   nukk:   'Nukkuvien osuus äänioikeutetuista',
   libe:   'LIBEn ääniosuus alueella',
   winner: 'Alueen eniten ääniä saanut puolue',
-  all:    'Puolueet + nukkuvat poolina · 40 % kaikki muut · 35 % nukkuvat · 25 % hyödyntämätön',
+  all:    'Puolueet + nukkuvat poolina · 55 % kaikki muut · 20 % nukkuvat · 25 % hyödyntämätön',
 };
 
 export const RANK_LABELS = {

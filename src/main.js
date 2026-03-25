@@ -1,5 +1,5 @@
 import './style.css';
-import { getColor, LEGEND_ITEMS, SUBTITLES } from './modes.js';
+import { getColor, LEGEND_ITEMS, SUBTITLES, recomputeScores } from './modes.js';
 import { initMap, updateMapColors, highlightArea } from './map.js';
 import { showInfo, buildAAlueet, buildLegend, switchTab } from './sidebar.js';
 import { buildRanking } from './ranking.js';
@@ -14,6 +14,9 @@ const [geo, electedVertaus, aAlueet, libePerArea, convertTargets, electedAreaVot
     fetch('/data/convert_targets.json').then(r => r.json()),
     fetch('/data/elected_area_votes.json').then(r => r.json()),
   ]);
+
+// Recompute scores with current formula (55% pool, 20% nukk, 25% untapped)
+recomputeScores(geo.features);
 
 let currentMode = 'score';
 let areas;
