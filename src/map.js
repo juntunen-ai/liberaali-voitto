@@ -1,13 +1,36 @@
 import * as d3 from 'd3';
 import { getColor } from './modes.js';
 
+// Pre-project lon/lat → Mercator x/y so geoIdentity renders with correct aspect ratio
+// and avoids D3's spherical winding issues.
+function toMercator(lon, lat) {
+  const x = lon * Math.PI / 180;
+  const y = Math.log(Math.tan(Math.PI / 4 + (lat * Math.PI / 180) / 2));
+  return [x, y];
+}
+
+function projectGeo(geo) {
+  for (const f of geo.features) {
+    const g = f.geometry;
+    if (g.type === 'Polygon') {
+      g.coordinates = g.coordinates.map(ring =>
+        ring.map(([lon, lat]) => toMercator(lon, lat))
+      );
+    } else if (g.type === 'MultiPolygon') {
+      g.coordinates = g.coordinates.map(poly =>
+        poly.map(ring => ring.map(([lon, lat]) => toMercator(lon, lat)))
+      );
+    }
+  }
+}
+
 export function initMap(geo, onSelectArea) {
+  projectGeo(geo);
+
   const svg = d3.select('#map');
   const g = svg.append('g');
   const container = document.getElementById('map-container');
   const { width, height } = container.getBoundingClientRect();
-  // Use geoIdentity (Cartesian) to avoid D3 spherical winding issues with this GeoJSON.
-  // reflectY flips latitude so north is up.
   const projection = d3.geoIdentity().reflectY(true)
     .fitExtent([[20, 20], [width - 20, height - 20]], geo);
   const pathGen = d3.geoPath().projection(projection);
