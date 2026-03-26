@@ -6,7 +6,7 @@ export const PARTY_COLORS = {
 };
 
 // Score mode: darker = higher conversion score (party hue darkened by score)
-const scoreDarken = d3.scaleLinear().domain([80, 87, 93]).range([0.9, 0.55, 0.2]).clamp(true);
+const scoreDarken = d3.scaleLinear().domain([80, 87, 93]).range([0.0, 0.25, 0.5]).clamp(true);
 
 const poolColor = d3.scaleLinear()
   .domain([20,40,60,80])
@@ -48,9 +48,9 @@ export function recomputeScores(features) {
 
 function partyScoreColor(p) {
   const partyClr = PARTY_COLORS[p.winning] || '#666';
-  const score = p.score != null ? p.score : 0;
-  const t = scoreDarken(score);
-  return d3.interpolate(partyClr, '#0a0a12')(t);
+  if (p.score == null) return partyClr;
+  const t = scoreDarken(p.score);
+  return d3.interpolate(partyClr, '#0d1117')(t);
 }
 
 export function getColor(p, mode) {
