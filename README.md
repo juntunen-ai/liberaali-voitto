@@ -65,15 +65,35 @@ Push `master`-haaraan käynnistää GitHub Actions -workflow'n, joka:
 
 Deploy-konfiguraatio löytyy tiedostosta [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml).
 
-## Data
+## Datan lähteet
 
-Sovellus lataa seuraavat aineistot selaimessa:
+Projektissa käytetään kolmea ulkoista lähdettä:
 
-- `public/data/geo.json` - GeoJSON-äänestysalueet ja aluekohtaiset ominaisuudet
-- `public/data/elected_vertaus.json` - valittujen ehdokkaiden vertailutiedot
-- `public/data/a_alueet.json` - A-alueiden koontidata
-- `public/data/libe_per_area.json` - LIBE-ehdokas alueittain
-- `public/data/convert_targets.json` - konversiokohteet alueittain
-- `public/data/elected_area_votes.json` - valittujen ehdokkaiden äänet alueittain
+- [Oikeusministeriö / Tieto- ja tulospalvelu, Eduskuntavaalit 2023](https://tulospalvelu.vaalit.fi/EKV-2023/fi/index.html)
+  - puolue- ja ehdokastason vaalitulokset äänestysalueittain
+- [Helsinki Region Infoshare: Pääkaupunkiseudun äänestysaluejako](https://hri.fi/data/fi/dataset/paakaupunkiseudun-aanestysaluejako)
+  - äänestysalueiden rajat Helsingissä, Espoossa, Vantaalla ja Kauniaisissa
+  - HRI:n aineistokuvauksen mukaan vuosien 2024-25 äänestysaluejako on sama kuin vuonna 2023, joten samaa geometriaa voidaan käyttää vuoden 2023 vaalitulosten kanssa
+- [Maanmittauslaitos: Hallinnolliset aluejaot, vektori](https://www.maanmittauslaitos.fi/kartat-ja-paikkatieto/aineistot-ja-rajapinnat/tuotekuvaukset/hallinnolliset-aluejaot-vektori)
+  - kuntarajat kartan overlay-kerrosta varten
 
-Äänestysdata pohjautuu Oikeusministeriön vaalituloksiin.
+## Projektin data
+
+Sovellus lataa selaimessa seuraavat JSON-aineistot:
+
+- `public/data/geo.json`
+  - projektissa koottu GeoJSON, joka yhdistää HRI:n äänestysaluegeometrian ja Oikeusministeriön vuoden 2023 vaalitulokset
+- `public/data/a_alueet.json`
+  - `geo.json`:sta johdettu A-alueiden koontidata
+- `public/data/elected_vertaus.json`
+  - Oikeusministeriön tulospalvelun valittujen ehdokkaiden vertailutiedot
+- `public/data/libe_per_area.json`
+  - Oikeusministeriön ehdokaskohtaisista äänestysaluetuloksista johdettu LIBE-ehdokkaiden aluekohtainen näkymä
+- `public/data/convert_targets.json`
+  - Oikeusministeriön ehdokaskohtaisista äänestysaluetuloksista johdettu kohdelista
+- `public/data/elected_area_votes.json`
+  - Oikeusministeriön ehdokaskohtaisista äänestysaluetuloksista johdettu valittujen ehdokkaiden aluekohtainen yhteenveto
+- `public/data/municipal_borders.json`
+  - Maanmittauslaitoksen hallinnollisista aluejaoista irrotettu PKS-kuntien rajakerros
+
+Repossa on lisäksi apuaineisto `public/helsinki_votes.json`, joka sisältää Helsingin ehdokaskohtaisia alueääniä Oikeusministeriön tulospalvelusta. Sitä ei tällä hetkellä ladata sovelluksessa.
