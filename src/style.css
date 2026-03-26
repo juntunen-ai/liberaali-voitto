@@ -1,6 +1,9 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Segoe UI',Arial,sans-serif;background:#0d1117;color:#e6edf3;height:100vh;display:flex;flex-direction:column;overflow:hidden}
 #header{background:#161b22;padding:12px 20px;border-bottom:2px solid #F9B000;display:flex;align-items:center;gap:16px;flex-wrap:wrap;flex-shrink:0}
+#author-line{position:fixed;bottom:8px;left:12px;font-size:10px;color:#FFD500;letter-spacing:.3px;z-index:100;pointer-events:auto;text-transform:uppercase}
+#author-line a{color:#FFD500;text-decoration:underline;text-underline-offset:2px}
+#author-line a:hover{color:#F9B000}
 #header h1{font-size:14px;font-weight:700;color:#F9B000}
 #header p{font-size:11px;color:#8b949e;margin-top:2px}
 #controls{display:flex;gap:8px;margin-left:auto;flex-wrap:wrap}
