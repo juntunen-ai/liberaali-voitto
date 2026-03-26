@@ -171,17 +171,20 @@ function selectPostiArea(props) {
       <span class="bar-val">${adj.toLocaleString('fi')} · ${pct}%</span></div>`;
   }).join('');
 
-  // Average score
-  const scores = districts.filter(p => p.score != null).map(p => p.score);
-  const avgScore = scores.length > 0 ? scores.reduce((s, v) => s + v, 0) / scores.length : null;
-  const scoreClr = avgScore >= 95 ? '#22c55e' : avgScore >= 94 ? '#86efac' : avgScore >= 92 ? '#fbbf24' : '#f87171';
+  // Weighted average score (by äänioikeutetut)
+  const weightedPairs = districts.filter(p => p.score != null && p.oik > 0);
+  const totalWeight = weightedPairs.reduce((s, p) => s + p.oik, 0);
+  const avgScore = totalWeight > 0
+    ? weightedPairs.reduce((s, p) => s + p.score * p.oik, 0) / totalWeight
+    : null;
+  const scoreClr = avgScore >= 75 ? '#22c55e' : avgScore >= 55 ? '#86efac' : avgScore >= 35 ? '#fbbf24' : '#f87171';
 
   // Per-district rows
   const districtRows = districts
     .sort((a, b) => (b.score || 0) - (a.score || 0))
     .map(p => {
       const sc = p.score != null ? p.score.toFixed(1) : '–';
-      const scClr = p.score >= 95 ? '#22c55e' : p.score >= 94 ? '#86efac' : p.score >= 92 ? '#fbbf24' : '#f87171';
+      const scClr = p.score >= 75 ? '#22c55e' : p.score >= 55 ? '#86efac' : p.score >= 35 ? '#fbbf24' : '#f87171';
       const wClr = PARTY_COLORS[p.winning] || '#666';
       return `<div class="posti-district-row">
         <span class="posti-dist-name">${p.nimi}</span>
@@ -197,12 +200,12 @@ function selectPostiArea(props) {
     <div style="font-size:11px;color:${c};margin-bottom:8px">${props.Kunta}</div>
     ${avgScore != null ? `
     <div class="score-big" style="color:${scoreClr}">${avgScore.toFixed(1)}</div>
-    <div class="score-label">konversiopistettä · keskiarvo</div>` : ''}
+    <div class="score-label">konversiopistettä · painotettu keskiarvo</div>` : ''}
     <div class="stat-row"><span class="stat-label">Äänestysalueita</span><span class="stat-val">${districts.length}</span></div>
     <div class="stat-row"><span class="stat-label">Äänioikeutettuja</span><span class="stat-val">${totOik.toLocaleString('fi')}</span></div>
     <div class="stat-row"><span class="stat-label">Äänestäneet</span><span class="stat-val">${totAan.toLocaleString('fi')} · ${totOik > 0 ? (totAan / totOik * 100).toFixed(1) : 0} %</span></div>
     <div class="stat-row"><span class="stat-label">Nukkuvat</span><span class="stat-val">${totNukk.toLocaleString('fi')} · ${totOik > 0 ? (totNukk / totOik * 100).toFixed(1) : 0} %</span></div>
-    <div class="stat-row"><span class="stat-label">Oikeistopooli</span><span class="stat-val">${totAan > 0 ? ((partyTotals.KOK + partyTotals.VIHR + partyTotals.RKP + partyTotals.LIIK) / totAan * 100).toFixed(1) : 0} %</span></div>
+    <div class="stat-row"><span class="stat-label">Oikeistopooli</span><span class="stat-val">${totOik > 0 ? ((partyTotals.KOK + partyTotals.VIHR + partyTotals.RKP + partyTotals.LIIK) / totOik * 100).toFixed(1) : 0} %</span></div>
     <div class="stat-row"><span class="stat-label">LIBE äänet</span><span class="stat-val">${totLibe} · ${totAan > 0 ? (totLibe / totAan * 100).toFixed(2) : 0} %</span></div>
     <div class="section-title">Ääntenjakauma</div>
     ${partyRows}
@@ -232,7 +235,7 @@ function buildPostiList(postiFeatures, geo, postiDistrictMap) {
     const aaRows = districts.map(d => {
       const wClr = PARTY_COLORS[d.winning] || '#666';
       const sc = d.score != null ? d.score.toFixed(1) : '–';
-      const scClr = d.score >= 95 ? '#22c55e' : d.score >= 94 ? '#86efac' : d.score >= 92 ? '#fbbf24' : '#f87171';
+      const scClr = d.score >= 75 ? '#22c55e' : d.score >= 55 ? '#86efac' : d.score >= 35 ? '#fbbf24' : '#f87171';
       return `<div class="posti-aa-row" onclick="window.__selectPostiArea('${p.Posno}')">
         <span class="posti-aa-name">${d.nimi}</span>
         <span style="color:${scClr};font-weight:700;font-size:10px">${sc}</span>
