@@ -5,12 +5,12 @@ export const PARTY_COLORS = {
   PS:'#d4a800',KESK:'#5D8A3C',RKP:'#1A9AD7',KD:'#5B3A8E',LIIK:'#FF6B35',LIBE:'#7C3AED'
 };
 
-// Score mode: party color blended with dark background by conversion potential
-const scoreIntensity = d3.scaleLinear().domain([80, 87, 93]).range([0.25, 0.6, 1.0]).clamp(true);
+// Score mode: darker = higher conversion score (party hue darkened by score)
+const scoreDarken = d3.scaleLinear().domain([80, 87, 93]).range([0.9, 0.55, 0.2]).clamp(true);
 
 const poolColor = d3.scaleLinear()
   .domain([20,40,60,80])
-  .range(['#1e3a5f','#1d4ed8','#60a5fa','#dbeafe'])
+  .range(['#dbeafe','#60a5fa','#1d4ed8','#1e3a5f'])
   .clamp(true);
 
 const nukkColor = d3.scaleLinear()
@@ -49,8 +49,8 @@ export function recomputeScores(features) {
 function partyScoreColor(p) {
   const partyClr = PARTY_COLORS[p.winning] || '#666';
   const score = p.score != null ? p.score : 0;
-  const t = scoreIntensity(score);
-  return d3.interpolate('#161b22', partyClr)(t);
+  const t = scoreDarken(score);
+  return d3.interpolate(partyClr, '#0a0a12')(t);
 }
 
 export function getColor(p, mode) {
@@ -65,8 +65,8 @@ export function getColor(p, mode) {
 }
 
 export const LEGEND_ITEMS = {
-  score:  [['KOK','#1a56c4'],['SDP','#E63946'],['VAS','#C41E3A'],['PS','#d4a800'],['VIHR','#2DC653'],['Kirkas = korkea konversio','#fff']],
-  pool:   [['≥65 %','#cce2fe'],['55–65 %','#a9d0fd'],['45–55 %','#67a3f9'],['35–45 %','#2c68e7'],['<35 %','#1d4397']],
+  score:  [['≥91 pistettä','#1a56c4'],['87–91','#3b6fcf'],['84–87','#6d92da'],['<84','#a4b9e6'],['Väri = suurin puolue','']],
+  pool:   [['≥65 %','#1d4397'],['55–65 %','#2c68e7'],['45–55 %','#67a3f9'],['35–45 %','#a9d0fd'],['<35 %','#cce2fe']],
   nukk:   [['≥38 %','#ba5f09'],['30–38 %','#e78a08'],['22–30 %','#f8ae17'],['15–22 %','#fccf35'],['<15 %','#fdec85']],
   libe:   [['≥1.4 %','#44188d'],['1.1–1.4 %','#6b2dd1'],['0.8–1.1 %','#9162f3'],['0.5–0.8 %','#c2b0fc'],['<0.5 %','#e9e4fe']],
   winner: [['KOK','#1a56c4'],['SDP','#E63946'],['VAS','#C41E3A'],['PS','#d4a800'],['VIHR','#2DC653']],
@@ -74,7 +74,7 @@ export const LEGEND_ITEMS = {
 };
 
 export const SUBTITLES = {
-  score:  'Suurin puolue + konversiopotentiaali LIBElle · kirkkaampi = korkeampi potentiaali',
+  score:  'Väri = suurin puolue · tummempi = korkeampi konversiopotentiaali LIBElle',
   pool:   'Oikeistopooli = KOK + VIHR + RKP + LIIK',
   nukk:   'Nukkuvien osuus äänioikeutetuista',
   libe:   'LIBEn ääniosuus alueella',

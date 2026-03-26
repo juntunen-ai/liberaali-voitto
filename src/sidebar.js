@@ -10,7 +10,7 @@ export function switchTab(tab) {
 export function showInfo(p, electedVertaus, electedAreaVotes, libePerArea, convertTargets) {
   const aan = p.aan || 1;
   const sc = p.score;
-  const scoreClr = sc >= 70 ? '#22c55e' : sc >= 55 ? '#86efac' : sc >= 40 ? '#fbbf24' : '#f87171';
+  const scoreClr = sc >= 91 ? '#22c55e' : sc >= 87 ? '#86efac' : sc >= 84 ? '#fbbf24' : '#f87171';
   const parties = ['KOK','VIHR','SDP','VAS','PS','RKP','LIIK','LIBE','KESK','KD'];
   const maxV = Math.max(...parties.map(k => p[k] || 0), 1);
 
@@ -100,6 +100,7 @@ export function buildLegend(mode, legendItems, subtitles) {
   if (el) el.textContent = subtitles[mode] || '';
   document.getElementById('legend-items').innerHTML =
     (legendItems[mode] || []).map(([l, c]) =>
-      `<div class="leg-row"><div class="leg-swatch" style="background:${c}"></div>${l}</div>`
+      c ? `<div class="leg-row"><div class="leg-swatch" style="background:${c}"></div>${l}</div>`
+        : `<div class="leg-row" style="font-style:italic;margin-top:4px">${l}</div>`
     ).join('');
 }
