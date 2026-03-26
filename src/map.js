@@ -39,14 +39,6 @@ export function initMap(geo, onSelectArea) {
     d3.zoom().scaleExtent([0.5, 20]).on('zoom', e => g.attr('transform', e.transform))
   );
 
-  // Fill gaps in GeoJSON with a background matching the map borders
-  const bounds = pathGen.bounds(geo);
-  g.append('rect')
-    .attr('x', bounds[0][0]).attr('y', bounds[0][1])
-    .attr('width', bounds[1][0] - bounds[0][0])
-    .attr('height', bounds[1][1] - bounds[0][1])
-    .attr('fill', '#2d333b');
-
   const areas = g.selectAll('.area')
     .data(geo.features)
     .enter().append('path')
