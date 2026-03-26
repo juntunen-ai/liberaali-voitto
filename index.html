@@ -19,31 +19,52 @@
     <button class="toggle-btn"        id="btn-libe"   onclick="setMode('libe')">LIBE%</button>
     <button class="toggle-btn"        id="btn-winner" onclick="setMode('winner')">Suurin puolue</button>
     <button class="toggle-btn"        id="btn-all"    onclick="setMode('all')">Puolueet + nukkuvat</button>
+    <span class="btn-separator"></span>
+    <button class="toggle-btn"        id="btn-posti"  onclick="window.togglePosti()">Postinumeroalueet</button>
   </div>
 </div>
-<div id="main">
-  <div id="map-container"><svg id="map"></svg></div>
-  <div id="sidebar">
-    <div id="tabs">
-      <div class="tab active" id="tab-info"    onclick="switchTab('info')">Alueen tiedot</div>
-      <div class="tab"        id="tab-ranking" onclick="switchTab('ranking')">Ranking</div>
+<div id="page-election" class="page active">
+  <div id="main">
+    <div id="map-container"><svg id="map"></svg></div>
+    <div id="sidebar">
+      <div id="tabs">
+        <div class="tab active" id="tab-info"    onclick="switchTab('info')">Alueen tiedot</div>
+        <div class="tab"        id="tab-ranking" onclick="switchTab('ranking')">Ranking</div>
+      </div>
+      <div class="tab-panel active" id="panel-info">
+        <div id="info-content">
+          <h2>Valitse äänestysalue</h2>
+          <p class="placeholder">Klikkaa kartalta aluetta nähdäksesi potentiaalipisteet, äänestystiedot, puoluejakauman ja top 10 ehdokkaat.</p>
+        </div>
+        <div id="a-alueet-panel"></div>
+        <div id="legend-section">
+          <h3>Selite</h3>
+          <div id="legend-items"></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="panel-ranking">
+        <div id="ranking-content">
+          <h3 id="ranking-title">Kaikki alueet – konversiopisteet</h3>
+          <div id="rank-list"></div>
+        </div>
+      </div>
     </div>
-    <div class="tab-panel active" id="panel-info">
-      <div id="info-content">
-        <h2>Valitse äänestysalue</h2>
-        <p class="placeholder">Klikkaa kartalta aluetta nähdäksesi potentiaalipisteet, äänestystiedot, puoluejakauman ja top 10 ehdokkaat.</p>
+  </div>
+</div>
+<div id="page-posti" class="page">
+  <div id="posti-main">
+    <div id="posti-map-container"><svg id="posti-map"></svg></div>
+    <div id="posti-sidebar">
+      <div id="posti-header">
+        <h3 class="posti-title">Postinumeroalueet – PKS</h3>
+        <div class="posti-legend">
+          <span class="posti-legend-dot" style="background:#F9B000"></span> Helsinki
+          <span class="posti-legend-dot" style="background:#3b82f6"></span> Espoo
+          <span class="posti-legend-dot" style="background:#22c55e"></span> Vantaa
+        </div>
       </div>
-      <div id="a-alueet-panel"></div>
-      <div id="legend-section">
-        <h3>Selite</h3>
-        <div id="legend-items"></div>
-      </div>
-    </div>
-    <div class="tab-panel" id="panel-ranking">
-      <div id="ranking-content">
-        <h3 id="ranking-title">Kaikki alueet – konversiopisteet</h3>
-        <div id="rank-list"></div>
-      </div>
+      <div id="posti-info"></div>
+      <div id="posti-list"></div>
     </div>
   </div>
 </div>

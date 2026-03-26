@@ -3,10 +3,12 @@ import { LEGEND_ITEMS, SUBTITLES, recomputeScores } from './modes.js';
 import { initMap, updateMapColors, highlightArea } from './map.js';
 import { showInfo, buildAAlueet, buildLegend, switchTab } from './sidebar.js';
 import { buildRanking } from './ranking.js';
+import { initPostiMap, updatePostiColors } from './posti.js';
+import { buildPostalDistrictMapping } from './geo-utils.js';
 
 // Load all data in parallel (use BASE_URL for GitHub Pages subpath)
 const base = import.meta.env.BASE_URL;
-const [geo, municipalBorders, electedVertaus, aAlueet, libePerArea, convertTargets, electedAreaVotes] =
+const [geo, municipalBorders, electedVertaus, aAlueet, libePerArea, convertTargets, electedAreaVotes, postiGeo] =
   await Promise.all([
     fetch(base + 'data/geo.json').then(r => r.json()),
     fetch(base + 'data/municipal_borders.json').then(r => r.json()),
@@ -15,7 +17,11 @@ const [geo, municipalBorders, electedVertaus, aAlueet, libePerArea, convertTarge
     fetch(base + 'data/libe_per_area.json').then(r => r.json()),
     fetch(base + 'data/convert_targets.json').then(r => r.json()),
     fetch(base + 'data/elected_area_votes.json').then(r => r.json()),
+    fetch(base + 'data/postinumero.json').then(r => r.json()),
   ]);
+
+// Compute postal→district mapping BEFORE any projection (uses WGS84 coordinates)
+const postiDistrictMap = buildPostalDistrictMapping(geo.features, postiGeo.features);
 
 // Derive all displayed metrics and the two separate potential models.
 recomputeScores(geo.features, aAlueet);
@@ -74,10 +80,29 @@ function setMode(mode) {
     document.getElementById('btn-' + m).classList.toggle('active', m === mode)
   );
   updateMapColors(areas, mode);
+  updatePostiColors(mode);
   buildAAlueet(aAlueet, mode);
   buildLegend(mode, LEGEND_ITEMS, SUBTITLES);
   buildRanking(geo.features, mode);
   refreshSelection();
+}
+
+// Page toggling: election view vs posti view
+let postiInited = false;
+let postiActive = false;
+
+function togglePosti() {
+  postiActive = !postiActive;
+  document.getElementById('page-election').classList.toggle('active', !postiActive);
+  document.getElementById('page-posti').classList.toggle('active', postiActive);
+  document.getElementById('btn-posti').classList.toggle('active', postiActive);
+
+  if (postiActive && !postiInited) {
+    postiInited = true;
+    initPostiMap(postiGeo, geo, postiDistrictMap, currentMode, {
+      electedAreaVotes
+    });
+  }
 }
 
 // Wire up global handlers (used by dynamically generated onclick attributes)
@@ -85,6 +110,7 @@ window.__selectArea  = selectArea;
 window.__selectAAlue = selectAAlue;
 window.setMode       = setMode;
 window.switchTab     = switchTab;
+window.togglePosti   = togglePosti;
 
 // Initialize
 areas = initMap(geo, municipalBorders, selectArea, clearSelection);
