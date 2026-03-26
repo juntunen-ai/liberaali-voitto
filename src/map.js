@@ -24,11 +24,14 @@ function projectGeo(geo) {
   }
 }
 
-export function initMap(geo, onSelectArea, onClearSelection) {
+export function initMap(geo, municipalBorders, onSelectArea, onClearSelection) {
   projectGeo(geo);
+  projectGeo(municipalBorders);
 
   const svg = d3.select('#map');
   const g = svg.append('g');
+  const areasLayer = g.append('g').attr('class', 'areas-layer');
+  const bordersLayer = g.append('g').attr('class', 'municipality-borders-layer');
   const container = document.getElementById('map-container');
   const { width, height } = container.getBoundingClientRect();
   const projection = d3.geoIdentity().reflectY(true)
@@ -39,7 +42,7 @@ export function initMap(geo, onSelectArea, onClearSelection) {
     d3.zoom().scaleExtent([0.5, 20]).on('zoom', e => g.attr('transform', e.transform))
   );
 
-  const areas = g.selectAll('.area')
+  const areas = areasLayer.selectAll('.area')
     .data(geo.features)
     .enter().append('path')
     .attr('class', 'area')
@@ -49,6 +52,18 @@ export function initMap(geo, onSelectArea, onClearSelection) {
       onSelectArea(d.properties.nimi);
       event.stopPropagation();
     });
+
+  bordersLayer.selectAll('.municipality-border-outline')
+    .data(municipalBorders.features)
+    .enter().append('path')
+    .attr('class', 'municipality-border-outline')
+    .attr('d', pathGen);
+
+  bordersLayer.selectAll('.municipality-border')
+    .data(municipalBorders.features)
+    .enter().append('path')
+    .attr('class', 'municipality-border')
+    .attr('d', pathGen);
 
   svg.on('click', () => {
     areas.attr('stroke', '#1a1a2e').attr('stroke-width', 0.4);
@@ -65,6 +80,7 @@ export function initMap(geo, onSelectArea, onClearSelection) {
     const { width: w, height: h } = container.getBoundingClientRect();
     projection.fitExtent([[20, 20], [w - 20, h - 20]], geo);
     areas.attr('d', pathGen);
+    bordersLayer.selectAll('path').attr('d', pathGen);
   });
 
   return areas;

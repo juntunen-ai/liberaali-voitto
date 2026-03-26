@@ -12,6 +12,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#0d1117;color:#e6edf3;he
 svg{width:100%;height:100%}
 .area{stroke:#1a1a2e;stroke-width:.4px;cursor:pointer}
 .area:hover{stroke:#fff;stroke-width:1.2px}
+.municipality-borders-layer{pointer-events:none}
+.municipality-border-outline{fill:none;stroke:#0f172a;stroke-width:3px;stroke-linejoin:round;stroke-linecap:round;opacity:.9}
+.municipality-border{fill:none;stroke:#f8fafc;stroke-width:1.3px;stroke-linejoin:round;stroke-linecap:round;opacity:.95}
 #sidebar{width:310px;background:#161b22;border-left:1px solid #30363d;display:flex;flex-direction:column;overflow:hidden}
 #tabs{display:flex;border-bottom:1px solid #30363d;flex-shrink:0}
 .tab{flex:1;padding:10px 0;font-size:12px;font-weight:600;text-align:center;cursor:pointer;color:#8b949e;border-bottom:2px solid transparent;transition:all .2s}

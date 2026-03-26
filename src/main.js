@@ -6,9 +6,10 @@ import { buildRanking } from './ranking.js';
 
 // Load all data in parallel (use BASE_URL for GitHub Pages subpath)
 const base = import.meta.env.BASE_URL;
-const [geo, electedVertaus, aAlueet, libePerArea, convertTargets, electedAreaVotes] =
+const [geo, municipalBorders, electedVertaus, aAlueet, libePerArea, convertTargets, electedAreaVotes] =
   await Promise.all([
     fetch(base + 'data/geo.json').then(r => r.json()),
+    fetch(base + 'data/municipal_borders.json').then(r => r.json()),
     fetch(base + 'data/elected_vertaus.json').then(r => r.json()),
     fetch(base + 'data/a_alueet.json').then(r => r.json()),
     fetch(base + 'data/libe_per_area.json').then(r => r.json()),
@@ -86,7 +87,7 @@ window.setMode       = setMode;
 window.switchTab     = switchTab;
 
 // Initialize
-areas = initMap(geo, selectArea, clearSelection);
+areas = initMap(geo, municipalBorders, selectArea, clearSelection);
 buildRanking(geo.features, 'score');
 buildLegend('score', LEGEND_ITEMS, SUBTITLES);
 buildAAlueet(aAlueet, 'score');
