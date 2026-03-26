@@ -166,8 +166,8 @@ function getPotentialColor(p, mode) {
   const value = mode === 'all' ? p.all_score : p.score;
   const shade = potentialShadeScales[mode](value ?? 0);
 
-  const light = d3.interpolateLab('#eef5ff', partyClr)(0.72);
-  const dark = d3.interpolateLab(partyClr, '#0d1117')(0.55);
+  const light = d3.interpolateLab('#f4f8ff', partyClr)(0.68);
+  const dark = d3.interpolateLab(partyClr, '#1f2937')(0.28);
 
   if (shade <= 0.5) {
     return d3.interpolateLab(light, partyClr)(shade / 0.5);
