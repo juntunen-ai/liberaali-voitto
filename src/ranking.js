@@ -14,7 +14,7 @@ function getRankColor(val, mode) {
   if (mode === 'score')  return val>=95?'#166534':val>=94?'#15803d':val>=92?'#ca8a04':'#c2410c';
   if (mode === 'pool')   return val>=65?'#1d4ed8':val>=45?'#3b82f6':val>=35?'#93c5fd':'#dbeafe';
   if (mode === 'nukk')   return val>=38?'#92400e':val>=22?'#d97706':val>=15?'#fbbf24':'#fde047';
-  if (mode === 'libe')   return val>=1.4?'#5b21b6':val>=0.8?'#7c3aed':val>=0.5?'#a78bfa':'#ddd6fe';
+  if (mode === 'libe')   return val>=1.4?'#78350f':val>=0.8?'#F9B000':val>=0.5?'#fcd34d':'#fef3c7';
   if (mode === 'winner') return PARTY_COLORS[val] || '#666';
   if (mode === 'all')    return val>=95?'#15803d':val>=94?'#22c55e':val>=93?'#86efac':val>=92?'#fde047':'#fef3c7';
   return '#888';

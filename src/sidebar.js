@@ -63,7 +63,7 @@ export function showInfo(p, electedVertaus, electedAreaVotes, libePerArea, conve
 
   const libeCandidate = libePerArea && libePerArea[p.nimi];
   const libeCandStr = libeCandidate
-    ? ` · <span style="color:#a78bfa;font-size:10px">${libeCandidate.n} (${libeCandidate.v})</span>`
+    ? ` · <span style="color:#F9B000;font-size:10px">${libeCandidate.n} (${libeCandidate.v})</span>`
     : '';
 
   document.getElementById('info-content').innerHTML = `
