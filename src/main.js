@@ -4,15 +4,16 @@ import { initMap, updateMapColors, highlightArea } from './map.js';
 import { showInfo, buildAAlueet, buildLegend, switchTab } from './sidebar.js';
 import { buildRanking } from './ranking.js';
 
-// Load all data in parallel
+// Load all data in parallel (use BASE_URL for GitHub Pages subpath)
+const base = import.meta.env.BASE_URL;
 const [geo, electedVertaus, aAlueet, libePerArea, convertTargets, electedAreaVotes] =
   await Promise.all([
-    fetch('/data/geo.json').then(r => r.json()),
-    fetch('/data/elected_vertaus.json').then(r => r.json()),
-    fetch('/data/a_alueet.json').then(r => r.json()),
-    fetch('/data/libe_per_area.json').then(r => r.json()),
-    fetch('/data/convert_targets.json').then(r => r.json()),
-    fetch('/data/elected_area_votes.json').then(r => r.json()),
+    fetch(base + 'data/geo.json').then(r => r.json()),
+    fetch(base + 'data/elected_vertaus.json').then(r => r.json()),
+    fetch(base + 'data/a_alueet.json').then(r => r.json()),
+    fetch(base + 'data/libe_per_area.json').then(r => r.json()),
+    fetch(base + 'data/convert_targets.json').then(r => r.json()),
+    fetch(base + 'data/elected_area_votes.json').then(r => r.json()),
   ]);
 
 // Recompute scores with current formula (55% pool, 20% nukk, 25% untapped)
