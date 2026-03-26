@@ -6,7 +6,7 @@ export const PARTY_COLORS = {
 };
 
 // Score mode: darker = higher conversion score (party hue darkened by score)
-const scoreDarken = d3.scaleLinear().domain([80, 87, 93]).range([0.0, 0.25, 0.5]).clamp(true);
+const scoreDarken = d3.scaleLinear().domain([80, 87, 93]).range([0.0, 0.15, 0.35]).clamp(true);
 
 const poolColor = d3.scaleLinear()
   .domain([20,40,60,80])
