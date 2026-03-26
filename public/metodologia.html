@@ -106,15 +106,15 @@ hyödyntämätön  = tavoitettavuus &minus; (LIBE / oik &times; 100)
 
 <h3>Painotettu yhdistelmäkaava</h3>
 <div class="formula">
-score = min(tavoitettavuus / 70 &times; 55, 55)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ min(nukkuvat / 45 &times; 20, 20)<br>
+score = min(tavoitettavuus / 70 &times; 65, 65)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ min(nukkuvat / 45 &times; 10, 10)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ min(hyödyntämätön / 70 &times; 25, 25)
 </div>
 
 <table>
   <tr><th>Komponentti</th><th>Paino</th><th>Normalisointi</th><th>Max pisteet</th></tr>
-  <tr><td>Tavoitettavuus</td><td>55 %</td><td>÷ 70</td><td>55</td></tr>
-  <tr><td>Nukkuvat</td><td>20 %</td><td>÷ 45</td><td>20</td></tr>
+  <tr><td>Tavoitettavuus</td><td>65 %</td><td>÷ 70</td><td>65</td></tr>
+  <tr><td>Nukkuvat</td><td>10 %</td><td>÷ 45</td><td>10</td></tr>
   <tr><td>Hyödyntämätön</td><td>25 %</td><td>÷ 70</td><td>25</td></tr>
   <tr><td><strong>Yhteensä</strong></td><td><strong>100 %</strong></td><td></td><td><strong>100</strong></td></tr>
 </table>
@@ -127,8 +127,8 @@ score = min(tavoitettavuus / 70 &times; 55, 55)<br>
 
 <h3>Painojen perustelut</h3>
 <ul>
-  <li><strong>Tavoitettavuus 55 %:</strong> Suurin paino, koska aktiivisten äänestäjien tavoitettavuus on kampanjoinnin kannalta tärkein tekijä. Aktiiviset äänestäjät ovat todennäköisempiä äänestämään myös tulevissa vaaleissa.</li>
-  <li><strong>Nukkuvat 20 %:</strong> Matalampi paino, koska nukkuvien aktivoiminen on vaikeampaa kuin olemassa olevien äänestäjien konvertointi. Nukkuvien aktivointi vaatii enemmän resursseja.</li>
+  <li><strong>Tavoitettavuus 65 %:</strong> Selvästi suurin paino. Aktiivisten äänestäjien tavoitettavuus on kampanjoinnin kannalta tärkein tekijä — he äänestävät todennäköisesti myös tulevissa vaaleissa ja ovat konvertoitavissa tehokkaammin kuin passiiviset.</li>
+  <li><strong>Nukkuvat 10 %:</strong> Matala paino. Data-analyysi osoittaa, että nukkuvien osuus korreloi <em>negatiivisesti</em> LIBEn kannatuksen kanssa (r = &minus;0.37). Korkean nukkumisen alueet ovat sosioekonomiselta profiililtaan kaukana LIBEn tyypillisestä kannattajakunnasta. Silti pieni paino säilytetään, koska nukkuvissa on marginaalista potentiaalia ilman puoluelojaliteetin estettä.</li>
   <li><strong>Hyödyntämätön 25 %:</strong> Keskitason paino. Mittaa "kasvuvaraa" — alueet, joissa LIBE on vielä pieni suhteessa tavoitettavaan massaan, tarjoavat enemmän kasvupotentiaalia kuin alueet, joissa LIBE on jo vahva.</li>
 </ul>
 

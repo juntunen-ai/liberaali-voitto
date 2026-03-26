@@ -10,7 +10,7 @@ export function switchTab(tab) {
 export function showInfo(p, electedVertaus, electedAreaVotes, libePerArea, convertTargets) {
   const aan = p.aan || 1;
   const sc = p.score;
-  const scoreClr = sc >= 91 ? '#22c55e' : sc >= 87 ? '#86efac' : sc >= 84 ? '#fbbf24' : '#f87171';
+  const scoreClr = sc >= 95 ? '#22c55e' : sc >= 94 ? '#86efac' : sc >= 92 ? '#fbbf24' : '#f87171';
   const parties = ['KOK','VIHR','SDP','VAS','PS','RKP','LIIK','LIBE','KESK','KD'];
   const maxV = Math.max(...parties.map(k => p[k] || 0), 1);
 

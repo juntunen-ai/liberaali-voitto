@@ -16,7 +16,7 @@ const [geo, electedVertaus, aAlueet, libePerArea, convertTargets, electedAreaVot
     fetch(base + 'data/elected_area_votes.json').then(r => r.json()),
   ]);
 
-// Recompute scores with current formula (55% pool, 20% nukk, 25% untapped)
+// Recompute scores with current formula (65% pool, 10% nukk, 25% untapped)
 recomputeScores(geo.features);
 
 let currentMode = 'score';
