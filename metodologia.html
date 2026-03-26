@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laskentakaavat – Liberaalipuolue PKS 2023</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',Arial,sans-serif;background:#0d1117;color:#e6edf3;max-width:800px;margin:0 auto;padding:24px 20px;line-height:1.7}
+    a{color:#7c3aed}
+    h1{font-size:20px;font-weight:700;margin-bottom:4px}
+    .back{font-size:12px;color:#8b949e;margin-bottom:24px;display:block}
+    h2{font-size:16px;font-weight:700;color:#c9d1d9;margin:28px 0 12px;padding-top:16px;border-top:1px solid #21262d}
+    h3{font-size:13px;font-weight:600;color:#8b949e;text-transform:uppercase;letter-spacing:.5px;margin:20px 0 8px}
+    p{margin-bottom:12px;font-size:14px;color:#c9d1d9}
+    .formula{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;margin:12px 0 16px;font-family:'Courier New',monospace;font-size:13px;color:#e6edf3;line-height:1.8;overflow-x:auto}
+    .note{background:#1c1e2a;border-left:3px solid #7c3aed;padding:12px 16px;margin:12px 0;font-size:13px;color:#a8b2c1;border-radius:0 6px 6px 0}
+    .warn{border-left-color:#f59e0b;background:#1e1c14}
+    table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+    th{text-align:left;padding:8px 12px;background:#161b22;color:#8b949e;font-weight:600;border-bottom:1px solid #30363d}
+    td{padding:8px 12px;border-bottom:1px solid #21262d;color:#c9d1d9}
+    .var{color:#7c3aed;font-weight:600}
+    ul{margin:8px 0 12px 20px;font-size:14px;color:#c9d1d9}
+    li{margin-bottom:6px}
+  </style>
+</head>
+<body>
+
+<h1>Laskentakaavat ja metodologia</h1>
+<a href="index.html" class="back">&larr; Takaisin karttaan</a>
+
+<p>Tämä sivu dokumentoi kaikki Liberaalipuolueen konversiokartan laskentakaavat, niiden komponentit ja perustelut valinnoille. Tavoitteena on tunnistaa äänestysalueet, joissa LIBEllä on suurin potentiaali kasvattaa kannatustaan.</p>
+
+<h2>1. Lähtödata</h2>
+
+<p>Data perustuu vuoden 2023 eduskuntavaalien äänestysaluetason tuloksiin pääkaupunkiseudulla (Helsinki, Espoo, Vantaa, Kauniainen). Yhteensä 304 äänestysaluetta.</p>
+
+<h3>Muuttujat per äänestysalue</h3>
+<table>
+  <tr><th>Muuttuja</th><th>Kuvaus</th></tr>
+  <tr><td><span class="var">oik</span></td><td>Äänioikeutettujen lukumäärä</td></tr>
+  <tr><td><span class="var">aan</span></td><td>Äänestäneiden lukumäärä</td></tr>
+  <tr><td><span class="var">nukk</span></td><td>Nukkuvien lukumäärä (oik &minus; aan)</td></tr>
+  <tr><td><span class="var">KOK, SDP, VIHR, ...</span></td><td>Puoluekohtaiset äänimäärät</td></tr>
+  <tr><td><span class="var">LIBE</span></td><td>Liberaalipuolueen äänimäärä alueella</td></tr>
+  <tr><td><span class="var">winning</span></td><td>Eniten ääniä saanut puolue</td></tr>
+</table>
+
+<h2>2. Johdetut prosenttimuuttujat</h2>
+
+<h3>Oikeistopooli (lib_pool)</h3>
+<div class="formula">
+lib_pool = (KOK + VIHR + RKP + LIIK) / oik &times; 100
+</div>
+<p><strong>Perustelu:</strong> Oikeistopooli mittaa ideologisesti lähimpien puolueiden kannatusta suhteessa kaikkiin äänioikeutettuihin. KOK, VIHR, RKP ja LIIK valittiin, koska ne jakavat LIBEn kanssa liberaaleja tai markkinamyönteisiä arvoja. Jakajana on <span class="var">oik</span> (ei <span class="var">aan</span>), jotta prosentti kuvaa koko äänioikeutetun väestön potentiaalia — ei vain aktiivisten äänestäjien.</p>
+
+<h3>Nukkuvien osuus (nukk_pct)</h3>
+<div class="formula">
+nukk_pct = nukk / oik &times; 100
+</div>
+<p><strong>Perustelu:</strong> Nukkuvat ovat äänioikeutettuja, jotka eivät äänestäneet. He ovat potentiaalinen kasvualusta uudelle puolueelle, koska heitä ei tarvitse konvertoida toisesta puolueesta.</p>
+
+<h3>LIBE-osuus (libe_pct)</h3>
+<div class="formula">
+libe_pct = LIBE / aan &times; 100
+</div>
+<p><strong>Perustelu:</strong> LIBEn nykyinen ääniosuus äänestäneistä. Korkea luku kertoo, että alueella on jo LIBEn tukijoita — hyvä pohja kampanjoinnille.</p>
+
+<div class="note warn">
+<strong>Huom:</strong> <span class="var">lib_pool</span> ja <span class="var">nukk_pct</span> käyttävät jakajana äänioikeutettuja (<span class="var">oik</span>), mutta <span class="var">libe_pct</span> käyttää äänestäneitä (<span class="var">aan</span>). Tämä on tarkoituksellista: oikeistopooli ja nukkuvat mittaavat koko väestön potentiaalia, kun taas LIBE-% kuvaa puolueen näkyvyyttä äänestäneiden keskuudessa.
+</div>
+
+<h2>3. Konversiopisteet (score) — pääkaava</h2>
+
+<p>Konversiopisteet ovat kartan ydinmittari. Ne yhdistävät kolme komponenttia painotetusti yhdeksi 0–100 pisteluvuksi.</p>
+
+<h3>Komponentit</h3>
+<div class="formula">
+tavoitettavuus = (aan &minus; LIBE) / oik &times; 100<br>
+nukkuvat       = nukk / oik &times; 100<br>
+hyödyntämätön  = tavoitettavuus &minus; (LIBE / oik &times; 100)
+</div>
+
+<table>
+  <tr><th>Komponentti</th><th>Kaava</th><th>Mitä mittaa</th></tr>
+  <tr>
+    <td><strong>Tavoitettavuus</strong></td>
+    <td>(aan &minus; LIBE) / oik</td>
+    <td>Muiden puolueiden äänestäjien osuus kaikista äänioikeutetuista. Kuvaa, kuinka suuri osa väestöstä on aktiivisia äänestäjiä, jotka eivät vielä äänestä LIBEä — potentiaalinen konvertoitava massa.</td>
+  </tr>
+  <tr>
+    <td><strong>Nukkuvat</strong></td>
+    <td>nukk / oik</td>
+    <td>Äänestämättä jättäneiden osuus. Nukkuvat ovat "vapaita" ääniä, jotka eivät vaadi konvertoimista toisesta puolueesta.</td>
+  </tr>
+  <tr>
+    <td><strong>Hyödyntämätön</strong></td>
+    <td>tavoitettavuus &minus; LIBE/oik</td>
+    <td>Tavoitettavuus miinus LIBEn nykyosuus äänioikeutetuista. Mittaa, kuinka paljon "tilaa" LIBEllä on kasvaa aktiivisten äänestäjien keskuudessa.</td>
+  </tr>
+</table>
+
+<div class="note">
+<strong>Miksi tavoitettavuus eikä oikeistopooli?</strong> Vaikka kartassa on erillinen "Oikeistopooli"-näkymä, pääkaava käyttää laajempaa tavoitettavuusmittaria (kaikki äänestäjät paitsi LIBE). Tämä johtuu siitä, että LIBEn äänestäjäpotentiaali ei rajoitu vain oikeistopuolueisiin — myös vihreiden, keskustan tai nukkuvien äänestäjät voivat siirtyä LIBEen.
+</div>
+
+<h3>Painotettu yhdistelmäkaava</h3>
+<div class="formula">
+score = min(tavoitettavuus / 70 &times; 55, 55)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ min(nukkuvat / 45 &times; 20, 20)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ min(hyödyntämätön / 70 &times; 25, 25)
+</div>
+
+<table>
+  <tr><th>Komponentti</th><th>Paino</th><th>Normalisointi</th><th>Max pisteet</th></tr>
+  <tr><td>Tavoitettavuus</td><td>55 %</td><td>÷ 70</td><td>55</td></tr>
+  <tr><td>Nukkuvat</td><td>20 %</td><td>÷ 45</td><td>20</td></tr>
+  <tr><td>Hyödyntämätön</td><td>25 %</td><td>÷ 70</td><td>25</td></tr>
+  <tr><td><strong>Yhteensä</strong></td><td><strong>100 %</strong></td><td></td><td><strong>100</strong></td></tr>
+</table>
+
+<h3>Normalisointikertoimien perustelut</h3>
+<ul>
+  <li><strong>÷ 70 (tavoitettavuus ja hyödyntämätön):</strong> Tyypillinen äänestysprosentti PKS-alueella on 70–80 %, joten tavoitettavuus on lähes aina lähellä 70 %. Jakamalla 70:llä normalisoidaan arvot niin, että "keskiverto" alue saa noin täydet pisteet.</li>
+  <li><strong>÷ 45 (nukkuvat):</strong> Nukkuvien osuus vaihtelee 17–45 % välillä. Jakaja 45 tarkoittaa, että vain korkean nukkumisosuuden alueet saavat täydet 20 pistettä.</li>
+</ul>
+
+<h3>Painojen perustelut</h3>
+<ul>
+  <li><strong>Tavoitettavuus 55 %:</strong> Suurin paino, koska aktiivisten äänestäjien tavoitettavuus on kampanjoinnin kannalta tärkein tekijä. Aktiiviset äänestäjät ovat todennäköisempiä äänestämään myös tulevissa vaaleissa.</li>
+  <li><strong>Nukkuvat 20 %:</strong> Matalampi paino, koska nukkuvien aktivoiminen on vaikeampaa kuin olemassa olevien äänestäjien konvertointi. Nukkuvien aktivointi vaatii enemmän resursseja.</li>
+  <li><strong>Hyödyntämätön 25 %:</strong> Keskitason paino. Mittaa "kasvuvaraa" — alueet, joissa LIBE on vielä pieni suhteessa tavoitettavaan massaan, tarjoavat enemmän kasvupotentiaalia kuin alueet, joissa LIBE on jo vahva.</li>
+</ul>
+
+<div class="note warn">
+<strong>Rajoitus:</strong> Kaava ei ota huomioon alueen demografiaa, tulotasoa tai arvokysymyksiä. Korkeat konversiopisteet eivät automaattisesti tarkoita, että alueen äänestäjät ovat ideologisesti lähellä LIBEä — vain, että alueella on numeerista potentiaalia.
+</div>
+
+<h2>4. Konvertoitavissa olevat äänet</h2>
+
+<p>Sivupaneelin "Konvertoitavissa (ilman valittuja)" -osio näyttää puoluejakauman äänistä, joista on vähennetty vaaleissa läpimenneisiin ehdokkaisiin kohdistuneet äänet.</p>
+
+<div class="formula">
+konvertoitavissa[puolue] = puolueen_äänet &minus; valittujen_ehdokkaiden_äänet_alueella
+</div>
+
+<p><strong>Perustelu:</strong> Jos äänestäjä äänesti ehdokasta, joka tuli valituksi, kyseinen äänestäjä todennäköisemmin pysyy puolueensa kannattajana. Sen sijaan äänestäjät, joiden ehdokas ei tullut valituksi, ovat alttiimpia vaihtamaan puoluetta.</p>
+
+<h2>5. Konversiokohteet</h2>
+
+<p>"Konversiokohteet (Oikeistopooli, viim. neljännes)" listaa oikeistopooliin (KOK, VIHR, RKP, LIIK) kuuluvien ehdokkaiden viimeisen neljänneksen äänestäjät — eli ne, jotka saivat vähiten ääniä oikeistopoolissa.</p>
+
+<p><strong>Perustelu:</strong> Näiden ehdokkaiden äänestäjät ovat potentiaalisimpia konvertoitavia: he äänestivät ideologisesti lähellä olevaa puoluetta, mutta ehdokas ei menestynyt. Nämä äänestäjät saattavat olla avoimempia vaihtoehdoille seuraavissa vaaleissa.</p>
+
+<h2>6. Kartanäkymien väriskaalojen yhteenveto</h2>
+
+<table>
+  <tr><th>Näkymä</th><th>Mittari</th><th>Suunta</th><th>Skaala</th></tr>
+  <tr><td>Konversiopisteet</td><td>score (0–100)</td><td>Tummempi = korkeampi</td><td>Puolueen väri tummennettu 0–35 %</td></tr>
+  <tr><td>Oikeistopooli</td><td>lib_pool (%)</td><td>Tummempi = korkeampi</td><td>Sininen: vaalea &rarr; tumma</td></tr>
+  <tr><td>Nukkuvat</td><td>nukk_pct (%)</td><td>Tummempi = korkeampi</td><td>Keltainen &rarr; ruskea</td></tr>
+  <tr><td>LIBE%</td><td>libe_pct (%)</td><td>Tummempi = korkeampi</td><td>Violetti: vaalea &rarr; tumma</td></tr>
+  <tr><td>Suurin puolue</td><td>winning</td><td>Puolueen väri</td><td>Puhdas puolueväri</td></tr>
+  <tr><td>Puolueet + nukkuvat</td><td>scoreAll() (0–100)</td><td>Tummempi = korkeampi</td><td>Keltainen &rarr; vihreä &rarr; tummanvihreä</td></tr>
+</table>
+
+<div class="note">
+<strong>Konsistenssi:</strong> Kaikissa väriskaaloissa tummempi väri = korkeampi arvo. Tämä pätee kaikkiin näkymiin.
+</div>
+
+<h2>7. Rajoitukset ja kehityskohteet</h2>
+
+<ul>
+  <li>Kaava ei huomioi alueellisia eroja äänestäjien asenteissa tai arvoissa.</li>
+  <li>Nukkuvien aktivointipotentiaali on todennäköisesti yliarvioitu — nukkuvien joukossa on paljon ihmisiä, jotka eivät äänestä mistään syystä (esim. muuttaneet, välinpitämättömät).</li>
+  <li>"Hyödyntämätön"-komponentti vähentää LIBE-äänet kahdesti (ensin tavoitettavuudesta, sitten uudelleen). Tämä on tietoinen valinta, joka painottaa alueita, joissa LIBE on vielä pieni.</li>
+  <li>Normalisointikertoimet (÷70, ÷45) perustuvat PKS-alueen dataan eivätkä välttämättä toimi muilla alueilla.</li>
+  <li>Data on vuodelta 2023, eikä huomioi väestönmuutoksia tai mielipidekehitystä.</li>
+</ul>
+
+<p style="margin-top:32px;font-size:12px;color:#6e7681;border-top:1px solid #21262d;padding-top:16px">
+  Laskentakaavat voi tarkistaa lähdekoodista: <a href="https://github.com/juntunen-ai/liberaali-voitto/blob/master/src/modes.js">modes.js</a>
+</p>
+
+</body>
+</html>
