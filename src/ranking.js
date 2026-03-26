@@ -1,4 +1,4 @@
-import { PARTY_COLORS, scoreAll, RANK_LABELS } from './modes.js';
+import { PARTY_COLORS, RANK_LABELS, getColor } from './modes.js';
 
 function getRankValue(p, mode) {
   if (mode === 'score')  return p.score || 0;
@@ -6,17 +6,17 @@ function getRankValue(p, mode) {
   if (mode === 'nukk')   return p.nukk_pct || 0;
   if (mode === 'libe')   return p.libe_pct || 0;
   if (mode === 'winner') return p.score || 0;
-  if (mode === 'all')    { const s = scoreAll(p); return s != null ? s : 0; }
+  if (mode === 'all')    return p.all_score || 0;
   return 0;
 }
 
-function getRankColor(val, mode) {
-  if (mode === 'score')  return val>=95?'#166534':val>=94?'#15803d':val>=92?'#ca8a04':'#c2410c';
+function getRankColor(p, val, mode) {
+  if (mode === 'score')  return getColor(p, mode);
   if (mode === 'pool')   return val>=65?'#1d4ed8':val>=45?'#3b82f6':val>=35?'#93c5fd':'#dbeafe';
   if (mode === 'nukk')   return val>=38?'#92400e':val>=22?'#d97706':val>=15?'#fbbf24':'#fde047';
   if (mode === 'libe')   return val>=1.4?'#78350f':val>=0.8?'#F9B000':val>=0.5?'#fcd34d':'#fef3c7';
   if (mode === 'winner') return PARTY_COLORS[val] || '#666';
-  if (mode === 'all')    return val>=95?'#15803d':val>=94?'#22c55e':val>=93?'#86efac':val>=92?'#fde047':'#fef3c7';
+  if (mode === 'all')    return getColor(p, mode);
   return '#888';
 }
 
@@ -60,7 +60,7 @@ export function buildRanking(features, mode) {
   const fmt = mode === 'libe' ? 2 : 1;
 
   document.getElementById('rank-list').innerHTML = sorted.map((p, i) => {
-    const c = getRankColor(p._val, mode);
+    const c = getRankColor(p, p._val, mode);
     return `<div class="rank-item" data-name="${p.nimi}" onclick="window.__selectArea('${p.nimi.replace(/'/g, "\\'")}')">
       <span class="rank-num">${i+1}</span>
       <div style="flex:1;min-width:0">

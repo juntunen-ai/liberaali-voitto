@@ -1,5 +1,5 @@
 import './style.css';
-import { getColor, LEGEND_ITEMS, SUBTITLES, recomputeScores } from './modes.js';
+import { LEGEND_ITEMS, SUBTITLES, recomputeScores } from './modes.js';
 import { initMap, updateMapColors, highlightArea } from './map.js';
 import { showInfo, buildAAlueet, buildLegend, switchTab } from './sidebar.js';
 import { buildRanking } from './ranking.js';
@@ -16,18 +16,23 @@ const [geo, electedVertaus, aAlueet, libePerArea, convertTargets, electedAreaVot
     fetch(base + 'data/elected_area_votes.json').then(r => r.json()),
   ]);
 
-// Recompute scores with current formula (65% pool, 10% nukk, 25% untapped)
-recomputeScores(geo.features);
+// Derive all displayed metrics and the two separate potential models.
+recomputeScores(geo.features, aAlueet);
 
 let currentMode = 'score';
 let areas;
+let selectedAreaName = null;
+let selectedAAlueIndex = null;
 
 function selectArea(name) {
   const feat = geo.features.find(f => f.properties.nimi === name);
   if (!feat) return;
+  selectedAreaName = name;
+  selectedAAlueIndex = null;
   highlightArea(areas, name);
-  showInfo(feat.properties, electedVertaus, electedAreaVotes, libePerArea, convertTargets);
+  showInfo(feat.properties, electedVertaus, electedAreaVotes, libePerArea, convertTargets, currentMode);
   switchTab('info');
+  document.querySelectorAll('.a-alue-box').forEach(el => el.classList.remove('selected'));
   document.querySelectorAll('.rank-item').forEach(el =>
     el.classList.toggle('selected', el.dataset.name === name)
   );
@@ -35,12 +40,31 @@ function selectArea(name) {
 
 function selectAAlue(i) {
   const p = aAlueet[i];
+  selectedAreaName = null;
+  selectedAAlueIndex = i;
   document.querySelectorAll('.a-alue-box').forEach((el, j) =>
     el.classList.toggle('selected', j === i)
   );
   highlightArea(areas, null); // deselect map areas
-  showInfo(p, electedVertaus, electedAreaVotes, libePerArea, convertTargets);
+  showInfo(p, electedVertaus, electedAreaVotes, libePerArea, convertTargets, currentMode);
   switchTab('info');
+  document.querySelectorAll('.rank-item').forEach(el => el.classList.remove('selected'));
+}
+
+function clearSelection() {
+  selectedAreaName = null;
+  selectedAAlueIndex = null;
+}
+
+function refreshSelection() {
+  if (selectedAreaName) {
+    selectArea(selectedAreaName);
+    return;
+  }
+
+  if (selectedAAlueIndex != null) {
+    selectAAlue(selectedAAlueIndex);
+  }
 }
 
 function setMode(mode) {
@@ -52,6 +76,7 @@ function setMode(mode) {
   buildAAlueet(aAlueet, mode);
   buildLegend(mode, LEGEND_ITEMS, SUBTITLES);
   buildRanking(geo.features, mode);
+  refreshSelection();
 }
 
 // Wire up global handlers (used by dynamically generated onclick attributes)
@@ -61,7 +86,7 @@ window.setMode       = setMode;
 window.switchTab     = switchTab;
 
 // Initialize
-areas = initMap(geo, selectArea);
+areas = initMap(geo, selectArea, clearSelection);
 buildRanking(geo.features, 'score');
 buildLegend('score', LEGEND_ITEMS, SUBTITLES);
 buildAAlueet(aAlueet, 'score');

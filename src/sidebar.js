@@ -1,4 +1,4 @@
-import { PARTY_COLORS, getColor } from './modes.js';
+import { PARTY_COLORS, getColor, getModeMetric } from './modes.js';
 
 export function switchTab(tab) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -7,10 +7,12 @@ export function switchTab(tab) {
   document.getElementById('panel-' + tab).classList.add('active');
 }
 
-export function showInfo(p, electedVertaus, electedAreaVotes, libePerArea, convertTargets) {
+export function showInfo(p, electedVertaus, electedAreaVotes, libePerArea, convertTargets, mode = 'score') {
   const aan = p.aan || 1;
-  const sc = p.score;
-  const scoreClr = sc >= 95 ? '#22c55e' : sc >= 94 ? '#86efac' : sc >= 92 ? '#fbbf24' : '#f87171';
+  const metric = getModeMetric(p, mode);
+  const scoreClr = mode === 'winner'
+    ? (PARTY_COLORS[p.winning] || '#e6edf3')
+    : getColor(p, mode);
   const parties = ['KOK','VIHR','SDP','VAS','PS','RKP','LIIK','LIBE','KESK','KD'];
   const maxV = Math.max(...parties.map(k => p[k] || 0), 1);
 
@@ -66,10 +68,14 @@ export function showInfo(p, electedVertaus, electedAreaVotes, libePerArea, conve
     ? ` · <span style="color:#F9B000;font-size:10px">${libeCandidate.n} (${libeCandidate.v})</span>`
     : '';
 
+  const heroValue = metric.text
+    ? metric.value
+    : `${metric.value != null ? metric.value.toFixed(metric.decimals ?? 1) : '–'}${metric.suffix || ''}`;
+
   document.getElementById('info-content').innerHTML = `
     <h2>${p.nimi}</h2>
-    <div class="score-big" style="color:${scoreClr}">${sc != null ? sc.toFixed(1) : '–'}</div>
-    <div class="score-label">konversiopistettä · max 100</div>
+    <div class="score-big" style="color:${scoreClr}">${heroValue}</div>
+    <div class="score-label">${metric.label}${metric.max100 ? ' · max 100' : ''}</div>
     <div class="stat-row"><span class="stat-label">Äänioikeutettuja</span><span class="stat-val">${(p.oik||0).toLocaleString('fi')}</span></div>
     <div class="stat-row"><span class="stat-label">Äänestäneet</span><span class="stat-val">${(p.aan||0).toLocaleString('fi')} · ${p.aanes_pct||0} %</span></div>
     <div class="stat-row"><span class="stat-label">Nukkuvat</span><span class="stat-val">${(p.nukk||0).toLocaleString('fi')} · ${p.nukk_pct||0} %</span></div>

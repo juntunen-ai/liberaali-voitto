@@ -24,7 +24,7 @@ function projectGeo(geo) {
   }
 }
 
-export function initMap(geo, onSelectArea) {
+export function initMap(geo, onSelectArea, onClearSelection) {
   projectGeo(geo);
 
   const svg = d3.select('#map');
@@ -54,8 +54,10 @@ export function initMap(geo, onSelectArea) {
     areas.attr('stroke', '#1a1a2e').attr('stroke-width', 0.4);
     document.getElementById('info-content').innerHTML =
       '<h2>Valitse äänestysalue</h2>' +
-      '<p class="placeholder">Klikkaa kartalta aluetta nähdäksesi konversiopisteet, äänestystiedot, puoluejakauman ja top 5 ehdokkaat.</p>';
+      '<p class="placeholder">Klikkaa kartalta aluetta nähdäksesi potentiaalipisteet, äänestystiedot, puoluejakauman ja top 10 ehdokkaat.</p>';
     document.querySelectorAll('.rank-item').forEach(el => el.classList.remove('selected'));
+    document.querySelectorAll('.a-alue-box').forEach(el => el.classList.remove('selected'));
+    onClearSelection?.();
   });
 
   // Re-fit projection on window resize
