@@ -1,9 +1,12 @@
 {
   "name": "liberaali-voitto",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Interaktiivinen vaalidata-analyysi ja sosioekonominen konversiokartta – PKS eduskuntavaalit 2023",
+  "license": "MIT",
   "type": "module",
   "scripts": {
+    "fetch-paavo": "node scripts/fetch-paavo.js",
     "dev": "vite --port=3000",
     "build": "vite build",
     "preview": "vite preview"
@@ -12,7 +15,6 @@
     "d3": "^7.9.0"
   },
   "devDependencies": {
-    "netlify-cli": "^24.6.1",
     "vite": "^6.2.0"
   }
 }

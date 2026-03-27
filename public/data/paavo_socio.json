@@ -1,0 +1,1692 @@
+{
+  "00100": {
+    "population": 18492,
+    "higher_edu_pct": 63.5,
+    "median_income": 34408,
+    "upper_income_pct": 42.5,
+    "knowledge_services_pct": 47.9,
+    "working_age_pct": 48,
+    "employment_rate": 60.2,
+    "dependency_ratio": 27.8
+  },
+  "00120": {
+    "population": 7297,
+    "higher_edu_pct": 61.3,
+    "median_income": 35106,
+    "upper_income_pct": 44.1,
+    "knowledge_services_pct": 43.4,
+    "working_age_pct": 48.8,
+    "employment_rate": 61.2,
+    "dependency_ratio": 28.1
+  },
+  "00130": {
+    "population": 1731,
+    "higher_edu_pct": 62.2,
+    "median_income": 38690,
+    "upper_income_pct": 50,
+    "knowledge_services_pct": 49.8,
+    "working_age_pct": 44.5,
+    "employment_rate": 61.5,
+    "dependency_ratio": 27.5
+  },
+  "00140": {
+    "population": 7721,
+    "higher_edu_pct": 63.7,
+    "median_income": 36332,
+    "upper_income_pct": 46.1,
+    "knowledge_services_pct": 15.1,
+    "working_age_pct": 43.9,
+    "employment_rate": 58.4,
+    "dependency_ratio": 31.4
+  },
+  "00150": {
+    "population": 9720,
+    "higher_edu_pct": 59.7,
+    "median_income": 32750,
+    "upper_income_pct": 39.7,
+    "knowledge_services_pct": 40.2,
+    "working_age_pct": 49.4,
+    "employment_rate": 62,
+    "dependency_ratio": 26.3
+  },
+  "00160": {
+    "population": 5145,
+    "higher_edu_pct": 61.2,
+    "median_income": 34808,
+    "upper_income_pct": 42.7,
+    "knowledge_services_pct": 12.9,
+    "working_age_pct": 42.3,
+    "employment_rate": 55.5,
+    "dependency_ratio": 36.1
+  },
+  "00170": {
+    "population": 7385,
+    "higher_edu_pct": 63.6,
+    "median_income": 35405,
+    "upper_income_pct": 44.3,
+    "knowledge_services_pct": 15.2,
+    "working_age_pct": 46.6,
+    "employment_rate": 61.4,
+    "dependency_ratio": 28.7
+  },
+  "00180": {
+    "population": 14784,
+    "higher_edu_pct": 53.1,
+    "median_income": 30624,
+    "upper_income_pct": 33.7,
+    "knowledge_services_pct": 54,
+    "working_age_pct": 49.8,
+    "employment_rate": 59.2,
+    "dependency_ratio": 28.1
+  },
+  "00190": {
+    "population": 677,
+    "higher_edu_pct": 57,
+    "median_income": 32257,
+    "upper_income_pct": 34.5,
+    "knowledge_services_pct": 5.4,
+    "working_age_pct": 42.1,
+    "employment_rate": 59.7,
+    "dependency_ratio": 34.4
+  },
+  "00200": {
+    "population": 16169,
+    "higher_edu_pct": 67.2,
+    "median_income": 35619,
+    "upper_income_pct": 43.4,
+    "knowledge_services_pct": 20.3,
+    "working_age_pct": 50.1,
+    "employment_rate": 63.6,
+    "dependency_ratio": 31.7
+  },
+  "00210": {
+    "population": 9156,
+    "higher_edu_pct": 68.3,
+    "median_income": 37916,
+    "upper_income_pct": 48.5,
+    "knowledge_services_pct": 36.8,
+    "working_age_pct": 44.7,
+    "employment_rate": 59.1,
+    "dependency_ratio": 38.4
+  },
+  "00220": {
+    "population": 11152,
+    "higher_edu_pct": 54.5,
+    "median_income": 31735,
+    "upper_income_pct": 34.1,
+    "knowledge_services_pct": 7.1,
+    "working_age_pct": 54.7,
+    "employment_rate": 67.5,
+    "dependency_ratio": 25.5
+  },
+  "00240": {
+    "population": 10171,
+    "higher_edu_pct": 50.2,
+    "median_income": 30182,
+    "upper_income_pct": 27.4,
+    "knowledge_services_pct": 47.2,
+    "working_age_pct": 51.4,
+    "employment_rate": 63.2,
+    "dependency_ratio": 28.2
+  },
+  "00250": {
+    "population": 11597,
+    "higher_edu_pct": 59.5,
+    "median_income": 32339,
+    "upper_income_pct": 36.7,
+    "knowledge_services_pct": 9.3,
+    "working_age_pct": 51.3,
+    "employment_rate": 64,
+    "dependency_ratio": 25.5
+  },
+  "00260": {
+    "population": 5903,
+    "higher_edu_pct": 63.1,
+    "median_income": 33827,
+    "upper_income_pct": 41.9,
+    "knowledge_services_pct": 8.2,
+    "working_age_pct": 43.1,
+    "employment_rate": 53.9,
+    "dependency_ratio": 34.2
+  },
+  "00270": {
+    "population": 7220,
+    "higher_edu_pct": 59.2,
+    "median_income": 31224,
+    "upper_income_pct": 32.6,
+    "knowledge_services_pct": 29.2,
+    "working_age_pct": 48,
+    "employment_rate": 61.1,
+    "dependency_ratio": 30.1
+  },
+  "00280": {
+    "population": 3155,
+    "higher_edu_pct": 57,
+    "median_income": 29698,
+    "upper_income_pct": 31.2,
+    "knowledge_services_pct": 9.2,
+    "working_age_pct": 46.2,
+    "employment_rate": 55.1,
+    "dependency_ratio": 29.5
+  },
+  "00290": {
+    "population": 152,
+    "higher_edu_pct": 53.3,
+    "median_income": 33907,
+    "upper_income_pct": 41.6,
+    "knowledge_services_pct": 0.7,
+    "working_age_pct": 50,
+    "employment_rate": 62.3,
+    "dependency_ratio": 30.9
+  },
+  "00300": {
+    "population": 5459,
+    "higher_edu_pct": 47.6,
+    "median_income": 29037,
+    "upper_income_pct": 26.2,
+    "knowledge_services_pct": 41.8,
+    "working_age_pct": 41.1,
+    "employment_rate": 51.8,
+    "dependency_ratio": 37.7
+  },
+  "00310": {
+    "population": 872,
+    "higher_edu_pct": 58.5,
+    "median_income": 30188,
+    "upper_income_pct": 25.7,
+    "knowledge_services_pct": 10.8,
+    "working_age_pct": 56.3,
+    "employment_rate": 62.8,
+    "dependency_ratio": 26.6
+  },
+  "00320": {
+    "population": 10897,
+    "higher_edu_pct": 60.8,
+    "median_income": 31333,
+    "upper_income_pct": 31.6,
+    "knowledge_services_pct": 8.7,
+    "working_age_pct": 52.2,
+    "employment_rate": 62,
+    "dependency_ratio": 28.3
+  },
+  "00330": {
+    "population": 9280,
+    "higher_edu_pct": 66.9,
+    "median_income": 36005,
+    "upper_income_pct": 45.2,
+    "knowledge_services_pct": 19.9,
+    "working_age_pct": 39.5,
+    "employment_rate": 53.3,
+    "dependency_ratio": 39.8
+  },
+  "00340": {
+    "population": 2028,
+    "higher_edu_pct": 65.6,
+    "median_income": 40673,
+    "upper_income_pct": 53.1,
+    "knowledge_services_pct": 33.8,
+    "working_age_pct": 37.2,
+    "employment_rate": 55.9,
+    "dependency_ratio": 36.8
+  },
+  "00350": {
+    "population": 9914,
+    "higher_edu_pct": 55.9,
+    "median_income": 30611,
+    "upper_income_pct": 30.6,
+    "knowledge_services_pct": 13.3,
+    "working_age_pct": 47.2,
+    "employment_rate": 59.8,
+    "dependency_ratio": 30.7
+  },
+  "00360": {
+    "population": 1873,
+    "higher_edu_pct": 53.3,
+    "median_income": 29636,
+    "upper_income_pct": 25.9,
+    "knowledge_services_pct": 24.1,
+    "working_age_pct": 50.8,
+    "employment_rate": 58.7,
+    "dependency_ratio": 29.7
+  },
+  "00370": {
+    "population": 6666,
+    "higher_edu_pct": 44.6,
+    "median_income": 28411,
+    "upper_income_pct": 26.1,
+    "knowledge_services_pct": 26.3,
+    "working_age_pct": 45.4,
+    "employment_rate": 54.1,
+    "dependency_ratio": 33.7
+  },
+  "00380": {
+    "population": 4741,
+    "higher_edu_pct": 45,
+    "median_income": 29048,
+    "upper_income_pct": 26.2,
+    "knowledge_services_pct": 32.3,
+    "working_age_pct": 46.2,
+    "employment_rate": 56.1,
+    "dependency_ratio": 31.9
+  },
+  "00390": {
+    "population": 6594,
+    "higher_edu_pct": 42.5,
+    "median_income": 28988,
+    "upper_income_pct": 25.4,
+    "knowledge_services_pct": 8.4,
+    "working_age_pct": 44.5,
+    "employment_rate": 54,
+    "dependency_ratio": 35.2
+  },
+  "00400": {
+    "population": 9187,
+    "higher_edu_pct": 45.7,
+    "median_income": 26909,
+    "upper_income_pct": 22,
+    "knowledge_services_pct": 13,
+    "working_age_pct": 47.9,
+    "employment_rate": 54.3,
+    "dependency_ratio": 32.4
+  },
+  "00410": {
+    "population": 10016,
+    "higher_edu_pct": 35.7,
+    "median_income": 25291,
+    "upper_income_pct": 18.1,
+    "knowledge_services_pct": 9.4,
+    "working_age_pct": 47.5,
+    "employment_rate": 51.5,
+    "dependency_ratio": 33
+  },
+  "00420": {
+    "population": 13973,
+    "higher_edu_pct": 36.5,
+    "median_income": 25097,
+    "upper_income_pct": 17.4,
+    "knowledge_services_pct": 5.7,
+    "working_age_pct": 44.6,
+    "employment_rate": 48,
+    "dependency_ratio": 35.6
+  },
+  "00430": {
+    "population": 8691,
+    "higher_edu_pct": 51.8,
+    "median_income": 32524,
+    "upper_income_pct": 35.1,
+    "knowledge_services_pct": 10,
+    "working_age_pct": 42.7,
+    "employment_rate": 60.7,
+    "dependency_ratio": 36.4
+  },
+  "00440": {
+    "population": 4740,
+    "higher_edu_pct": 46.2,
+    "median_income": 27029,
+    "upper_income_pct": 22,
+    "knowledge_services_pct": 4.6,
+    "working_age_pct": 43.4,
+    "employment_rate": 46.6,
+    "dependency_ratio": 40
+  },
+  "00500": {
+    "population": 11698,
+    "higher_edu_pct": 45.4,
+    "median_income": 25961,
+    "upper_income_pct": 21.3,
+    "knowledge_services_pct": 55,
+    "working_age_pct": 61.7,
+    "employment_rate": 64.5,
+    "dependency_ratio": 14.3
+  },
+  "00510": {
+    "population": 9407,
+    "higher_edu_pct": 51.2,
+    "median_income": 28727,
+    "upper_income_pct": 26.4,
+    "knowledge_services_pct": 43.9,
+    "working_age_pct": 60.3,
+    "employment_rate": 64.3,
+    "dependency_ratio": 20.7
+  },
+  "00520": {
+    "population": 8732,
+    "higher_edu_pct": 51.9,
+    "median_income": 29589,
+    "upper_income_pct": 29.2,
+    "knowledge_services_pct": 32.7,
+    "working_age_pct": 57.7,
+    "employment_rate": 62.6,
+    "dependency_ratio": 24.8
+  },
+  "00530": {
+    "population": 17951,
+    "higher_edu_pct": 51.1,
+    "median_income": 28216,
+    "upper_income_pct": 25.7,
+    "knowledge_services_pct": 24.9,
+    "working_age_pct": 56.7,
+    "employment_rate": 61,
+    "dependency_ratio": 22.9
+  },
+  "00540": {
+    "population": 6450,
+    "higher_edu_pct": 57.8,
+    "median_income": 33876,
+    "upper_income_pct": 39.8,
+    "knowledge_services_pct": 17.1,
+    "working_age_pct": 54.4,
+    "employment_rate": 69,
+    "dependency_ratio": 26.9
+  },
+  "00550": {
+    "population": 8808,
+    "higher_edu_pct": 49.6,
+    "median_income": 27455,
+    "upper_income_pct": 22.6,
+    "knowledge_services_pct": 10,
+    "working_age_pct": 56.3,
+    "employment_rate": 61.3,
+    "dependency_ratio": 22.7
+  },
+  "00560": {
+    "population": 13616,
+    "higher_edu_pct": 56.3,
+    "median_income": 30416,
+    "upper_income_pct": 31.4,
+    "knowledge_services_pct": 25.7,
+    "working_age_pct": 47.6,
+    "employment_rate": 58.7,
+    "dependency_ratio": 29.4
+  },
+  "00570": {
+    "population": 4193,
+    "higher_edu_pct": 65.1,
+    "median_income": 36639,
+    "upper_income_pct": 46.6,
+    "knowledge_services_pct": 42.1,
+    "working_age_pct": 44,
+    "employment_rate": 58,
+    "dependency_ratio": 36.3
+  },
+  "00580": {
+    "population": 8148,
+    "higher_edu_pct": 52.6,
+    "median_income": 31202,
+    "upper_income_pct": 34.7,
+    "knowledge_services_pct": 22.3,
+    "working_age_pct": 52.9,
+    "employment_rate": 67.4,
+    "dependency_ratio": 21.6
+  },
+  "00590": {
+    "population": 4958,
+    "higher_edu_pct": 51.2,
+    "median_income": 31537,
+    "upper_income_pct": 32.3,
+    "knowledge_services_pct": 14.7,
+    "working_age_pct": 46.4,
+    "employment_rate": 61.5,
+    "dependency_ratio": 32.2
+  },
+  "00600": {
+    "population": 4722,
+    "higher_edu_pct": 42.4,
+    "median_income": 26753,
+    "upper_income_pct": 22.6,
+    "knowledge_services_pct": 8.6,
+    "working_age_pct": 43.8,
+    "employment_rate": 49.9,
+    "dependency_ratio": 37.3
+  },
+  "00610": {
+    "population": 7993,
+    "higher_edu_pct": 53.7,
+    "median_income": 30536,
+    "upper_income_pct": 27.9,
+    "knowledge_services_pct": 23.2,
+    "working_age_pct": 47.4,
+    "employment_rate": 58.2,
+    "dependency_ratio": 34.4
+  },
+  "00620": {
+    "population": 3450,
+    "higher_edu_pct": 58.4,
+    "median_income": 32683,
+    "upper_income_pct": 36.6,
+    "knowledge_services_pct": 15.6,
+    "working_age_pct": 41.1,
+    "employment_rate": 52.9,
+    "dependency_ratio": 41.2
+  },
+  "00630": {
+    "population": 8536,
+    "higher_edu_pct": 43.5,
+    "median_income": 27292,
+    "upper_income_pct": 22.2,
+    "knowledge_services_pct": 3.3,
+    "working_age_pct": 42.4,
+    "employment_rate": 50.8,
+    "dependency_ratio": 36.8
+  },
+  "00640": {
+    "population": 8719,
+    "higher_edu_pct": 51.1,
+    "median_income": 30089,
+    "upper_income_pct": 29.4,
+    "knowledge_services_pct": 7.5,
+    "working_age_pct": 44.9,
+    "employment_rate": 56,
+    "dependency_ratio": 35.2
+  },
+  "00650": {
+    "population": 5145,
+    "higher_edu_pct": 53.2,
+    "median_income": 30719,
+    "upper_income_pct": 31.1,
+    "knowledge_services_pct": 25.7,
+    "working_age_pct": 46.1,
+    "employment_rate": 60.3,
+    "dependency_ratio": 33.3
+  },
+  "00660": {
+    "population": 6974,
+    "higher_edu_pct": 64.7,
+    "median_income": 37827,
+    "upper_income_pct": 48.2,
+    "knowledge_services_pct": 6.4,
+    "working_age_pct": 35.5,
+    "employment_rate": 54.9,
+    "dependency_ratio": 42.9
+  },
+  "00670": {
+    "population": 5898,
+    "higher_edu_pct": 67.4,
+    "median_income": 39653,
+    "upper_income_pct": 52.1,
+    "knowledge_services_pct": 13.7,
+    "working_age_pct": 34.5,
+    "employment_rate": 56.7,
+    "dependency_ratio": 42.2
+  },
+  "00680": {
+    "population": 3610,
+    "higher_edu_pct": 59.8,
+    "median_income": 38196,
+    "upper_income_pct": 48.8,
+    "knowledge_services_pct": 5,
+    "working_age_pct": 38.2,
+    "employment_rate": 60.2,
+    "dependency_ratio": 38.1
+  },
+  "00690": {
+    "population": 2818,
+    "higher_edu_pct": 54.1,
+    "median_income": 34919,
+    "upper_income_pct": 42.1,
+    "knowledge_services_pct": 7.8,
+    "working_age_pct": 38.6,
+    "employment_rate": 59.4,
+    "dependency_ratio": 40.1
+  },
+  "00700": {
+    "population": 14539,
+    "higher_edu_pct": 31.6,
+    "median_income": 25468,
+    "upper_income_pct": 17.6,
+    "knowledge_services_pct": 15.9,
+    "working_age_pct": 43.6,
+    "employment_rate": 49.7,
+    "dependency_ratio": 35.9
+  },
+  "00710": {
+    "population": 13250,
+    "higher_edu_pct": 34.4,
+    "median_income": 25614,
+    "upper_income_pct": 17.2,
+    "knowledge_services_pct": 5.3,
+    "working_age_pct": 45.3,
+    "employment_rate": 49.7,
+    "dependency_ratio": 34.4
+  },
+  "00720": {
+    "population": 9079,
+    "higher_edu_pct": 37.7,
+    "median_income": 26624,
+    "upper_income_pct": 17.9,
+    "knowledge_services_pct": 11.6,
+    "working_age_pct": 43.7,
+    "employment_rate": 50.5,
+    "dependency_ratio": 36.8
+  },
+  "00730": {
+    "population": 11738,
+    "higher_edu_pct": 47.5,
+    "median_income": 31584,
+    "upper_income_pct": 32.1,
+    "knowledge_services_pct": 11.1,
+    "working_age_pct": 39.7,
+    "employment_rate": 56.9,
+    "dependency_ratio": 37.7
+  },
+  "00740": {
+    "population": 10514,
+    "higher_edu_pct": 37.8,
+    "median_income": 28916,
+    "upper_income_pct": 24.6,
+    "knowledge_services_pct": 6.2,
+    "working_age_pct": 40.9,
+    "employment_rate": 53.6,
+    "dependency_ratio": 37.8
+  },
+  "00750": {
+    "population": 9389,
+    "higher_edu_pct": 35.1,
+    "median_income": 27457,
+    "upper_income_pct": 22.2,
+    "knowledge_services_pct": 5.4,
+    "working_age_pct": 43.8,
+    "employment_rate": 52.2,
+    "dependency_ratio": 34.9
+  },
+  "00760": {
+    "population": 7453,
+    "higher_edu_pct": 48.1,
+    "median_income": 32975,
+    "upper_income_pct": 35.3,
+    "knowledge_services_pct": 4.3,
+    "working_age_pct": 37.2,
+    "employment_rate": 56.6,
+    "dependency_ratio": 38.7
+  },
+  "00770": {
+    "population": 7367,
+    "higher_edu_pct": 21.2,
+    "median_income": 24368,
+    "upper_income_pct": 12.9,
+    "knowledge_services_pct": 3.9,
+    "working_age_pct": 43.2,
+    "employment_rate": 48.7,
+    "dependency_ratio": 35.2
+  },
+  "00780": {
+    "population": 6949,
+    "higher_edu_pct": 47.9,
+    "median_income": 31894,
+    "upper_income_pct": 32.8,
+    "knowledge_services_pct": 8.2,
+    "working_age_pct": 36.3,
+    "employment_rate": 51.8,
+    "dependency_ratio": 42.5
+  },
+  "00790": {
+    "population": 10588,
+    "higher_edu_pct": 48.3,
+    "median_income": 27465,
+    "upper_income_pct": 24.3,
+    "knowledge_services_pct": 31.4,
+    "working_age_pct": 46.4,
+    "employment_rate": 56.6,
+    "dependency_ratio": 30
+  },
+  "00800": {
+    "population": 8084,
+    "higher_edu_pct": 48.8,
+    "median_income": 28249,
+    "upper_income_pct": 24.7,
+    "knowledge_services_pct": 16.9,
+    "working_age_pct": 47.6,
+    "employment_rate": 56.7,
+    "dependency_ratio": 31.6
+  },
+  "00810": {
+    "population": 11682,
+    "higher_edu_pct": 46.1,
+    "median_income": 29420,
+    "upper_income_pct": 26.9,
+    "knowledge_services_pct": 12.5,
+    "working_age_pct": 46.7,
+    "employment_rate": 56.9,
+    "dependency_ratio": 32.6
+  },
+  "00820": {
+    "population": 7826,
+    "higher_edu_pct": 44.4,
+    "median_income": 26905,
+    "upper_income_pct": 19.6,
+    "knowledge_services_pct": 5.2,
+    "working_age_pct": 46.8,
+    "employment_rate": 52.7,
+    "dependency_ratio": 33.9
+  },
+  "00830": {
+    "population": 2329,
+    "higher_edu_pct": 69.5,
+    "median_income": 42006,
+    "upper_income_pct": 55.6,
+    "knowledge_services_pct": 30.9,
+    "working_age_pct": 34.2,
+    "employment_rate": 55.1,
+    "dependency_ratio": 42.6
+  },
+  "00840": {
+    "population": 8922,
+    "higher_edu_pct": 55.5,
+    "median_income": 32053,
+    "upper_income_pct": 33.7,
+    "knowledge_services_pct": 8.7,
+    "working_age_pct": 39.1,
+    "employment_rate": 53.2,
+    "dependency_ratio": 41
+  },
+  "00850": {
+    "population": 3092,
+    "higher_edu_pct": 57.6,
+    "median_income": 36868,
+    "upper_income_pct": 47.4,
+    "knowledge_services_pct": 19.5,
+    "working_age_pct": 36.1,
+    "employment_rate": 56.8,
+    "dependency_ratio": 37.8
+  },
+  "00860": {
+    "population": 278,
+    "higher_edu_pct": 56.6,
+    "median_income": 35789,
+    "upper_income_pct": 37.4,
+    "knowledge_services_pct": 0.1,
+    "working_age_pct": 56.1,
+    "employment_rate": 81.8,
+    "dependency_ratio": 18.3
+  },
+  "00870": {
+    "population": 6666,
+    "higher_edu_pct": 39,
+    "median_income": 27496,
+    "upper_income_pct": 22.2,
+    "knowledge_services_pct": 10.4,
+    "working_age_pct": 41.2,
+    "employment_rate": 51.4,
+    "dependency_ratio": 36.5
+  },
+  "00880": {
+    "population": 1934,
+    "higher_edu_pct": 43.8,
+    "median_income": 29652,
+    "upper_income_pct": 25.8,
+    "knowledge_services_pct": 6.6,
+    "working_age_pct": 57,
+    "employment_rate": 67.4,
+    "dependency_ratio": 24.6
+  },
+  "00890": {
+    "population": 1755,
+    "higher_edu_pct": 53,
+    "median_income": 36664,
+    "upper_income_pct": 46.6,
+    "knowledge_services_pct": 7,
+    "working_age_pct": 32.6,
+    "employment_rate": 60.3,
+    "dependency_ratio": 30.1
+  },
+  "00900": {
+    "population": 4302,
+    "higher_edu_pct": 32.4,
+    "median_income": 24210,
+    "upper_income_pct": 16.7,
+    "knowledge_services_pct": 2.2,
+    "working_age_pct": 42.6,
+    "employment_rate": 46.3,
+    "dependency_ratio": 36.3
+  },
+  "00910": {
+    "population": 6135,
+    "higher_edu_pct": 38.7,
+    "median_income": 26477,
+    "upper_income_pct": 18.9,
+    "knowledge_services_pct": 4.2,
+    "working_age_pct": 45.1,
+    "employment_rate": 51.5,
+    "dependency_ratio": 33.2
+  },
+  "00920": {
+    "population": 13535,
+    "higher_edu_pct": 38.1,
+    "median_income": 27715,
+    "upper_income_pct": 22.8,
+    "knowledge_services_pct": 3.1,
+    "working_age_pct": 40.1,
+    "employment_rate": 51.4,
+    "dependency_ratio": 38.6
+  },
+  "00930": {
+    "population": 7175,
+    "higher_edu_pct": 35.8,
+    "median_income": 25642,
+    "upper_income_pct": 22.6,
+    "knowledge_services_pct": 7.7,
+    "working_age_pct": 40.1,
+    "employment_rate": 47.1,
+    "dependency_ratio": 37.2
+  },
+  "00940": {
+    "population": 26432,
+    "higher_edu_pct": 22.6,
+    "median_income": 23045,
+    "upper_income_pct": 11.4,
+    "knowledge_services_pct": 3.1,
+    "working_age_pct": 41.8,
+    "employment_rate": 43.5,
+    "dependency_ratio": 36.2
+  },
+  "00950": {
+    "population": 6707,
+    "higher_edu_pct": 47.3,
+    "median_income": 32778,
+    "upper_income_pct": 36.2,
+    "knowledge_services_pct": 12.4,
+    "working_age_pct": 38.9,
+    "employment_rate": 56.8,
+    "dependency_ratio": 35.9
+  },
+  "00960": {
+    "population": 6954,
+    "higher_edu_pct": 35.1,
+    "median_income": 27478,
+    "upper_income_pct": 20.2,
+    "knowledge_services_pct": 9.2,
+    "working_age_pct": 39.7,
+    "employment_rate": 50,
+    "dependency_ratio": 37.8
+  },
+  "00970": {
+    "population": 10777,
+    "higher_edu_pct": 27.3,
+    "median_income": 25650,
+    "upper_income_pct": 15.1,
+    "knowledge_services_pct": 3.8,
+    "working_age_pct": 40.5,
+    "employment_rate": 47.6,
+    "dependency_ratio": 37.1
+  },
+  "00980": {
+    "population": 22693,
+    "higher_edu_pct": 33.4,
+    "median_income": 25263,
+    "upper_income_pct": 17.8,
+    "knowledge_services_pct": 4,
+    "working_age_pct": 38.7,
+    "employment_rate": 45.5,
+    "dependency_ratio": 37.9
+  },
+  "00990": {
+    "population": 9673,
+    "higher_edu_pct": 44.4,
+    "median_income": 29524,
+    "upper_income_pct": 27.9,
+    "knowledge_services_pct": 10.2,
+    "working_age_pct": 40.9,
+    "employment_rate": 52.3,
+    "dependency_ratio": 36.2
+  },
+  "01200": {
+    "population": 13100,
+    "higher_edu_pct": 19.8,
+    "median_income": 24068,
+    "upper_income_pct": 12.1,
+    "knowledge_services_pct": 3.4,
+    "working_age_pct": 43.9,
+    "employment_rate": 49.6,
+    "dependency_ratio": 34.2
+  },
+  "01230": {
+    "population": 3081,
+    "higher_edu_pct": 37,
+    "median_income": 30908,
+    "upper_income_pct": 26.5,
+    "knowledge_services_pct": 1,
+    "working_age_pct": 45.1,
+    "employment_rate": 63,
+    "dependency_ratio": 31.8
+  },
+  "01260": {
+    "population": 4683,
+    "higher_edu_pct": 41.2,
+    "median_income": 32258,
+    "upper_income_pct": 33.7,
+    "knowledge_services_pct": 6,
+    "working_age_pct": 37.8,
+    "employment_rate": 58.7,
+    "dependency_ratio": 37.5
+  },
+  "01280": {
+    "population": 9979,
+    "higher_edu_pct": 26.8,
+    "median_income": 26673,
+    "upper_income_pct": 17.4,
+    "knowledge_services_pct": 5.5,
+    "working_age_pct": 43.4,
+    "employment_rate": 53,
+    "dependency_ratio": 35.8
+  },
+  "01300": {
+    "population": 24875,
+    "higher_edu_pct": 34.3,
+    "median_income": 27931,
+    "upper_income_pct": 21.3,
+    "knowledge_services_pct": 9.9,
+    "working_age_pct": 45.8,
+    "employment_rate": 55.8,
+    "dependency_ratio": 32.3
+  },
+  "01340": {
+    "population": 2544,
+    "higher_edu_pct": 31.2,
+    "median_income": 27104,
+    "upper_income_pct": 16.3,
+    "knowledge_services_pct": 8,
+    "working_age_pct": 51.3,
+    "employment_rate": 61.5,
+    "dependency_ratio": 28
+  },
+  "01350": {
+    "population": 10533,
+    "higher_edu_pct": 32.4,
+    "median_income": 28108,
+    "upper_income_pct": 21.6,
+    "knowledge_services_pct": 10,
+    "working_age_pct": 44.8,
+    "employment_rate": 56.6,
+    "dependency_ratio": 33.8
+  },
+  "01360": {
+    "population": 12857,
+    "higher_edu_pct": 23.9,
+    "median_income": 23609,
+    "upper_income_pct": 12.8,
+    "knowledge_services_pct": 4.6,
+    "working_age_pct": 45.7,
+    "employment_rate": 48.4,
+    "dependency_ratio": 34.5
+  },
+  "01370": {
+    "population": 7229,
+    "higher_edu_pct": 31.5,
+    "median_income": 26053,
+    "upper_income_pct": 17.1,
+    "knowledge_services_pct": 20.8,
+    "working_age_pct": 50.5,
+    "employment_rate": 59.5,
+    "dependency_ratio": 27.1
+  },
+  "01380": {
+    "population": 2112,
+    "higher_edu_pct": 39.5,
+    "median_income": 32983,
+    "upper_income_pct": 34.5,
+    "knowledge_services_pct": 1.2,
+    "working_age_pct": 42.4,
+    "employment_rate": 65.6,
+    "dependency_ratio": 34.9
+  },
+  "01390": {
+    "population": 9184,
+    "higher_edu_pct": 40.3,
+    "median_income": 32781,
+    "upper_income_pct": 33.2,
+    "knowledge_services_pct": 7,
+    "working_age_pct": 42.5,
+    "employment_rate": 63.4,
+    "dependency_ratio": 34.7
+  },
+  "01400": {
+    "population": 9822,
+    "higher_edu_pct": 32.7,
+    "median_income": 27767,
+    "upper_income_pct": 22.2,
+    "knowledge_services_pct": 2.3,
+    "working_age_pct": 41,
+    "employment_rate": 54,
+    "dependency_ratio": 35.8
+  },
+  "01420": {
+    "population": 3122,
+    "higher_edu_pct": 40.5,
+    "median_income": 32360,
+    "upper_income_pct": 35.7,
+    "knowledge_services_pct": 8,
+    "working_age_pct": 36,
+    "employment_rate": 58.3,
+    "dependency_ratio": 37.3
+  },
+  "01450": {
+    "population": 18126,
+    "higher_edu_pct": 29.7,
+    "median_income": 28250,
+    "upper_income_pct": 21.9,
+    "knowledge_services_pct": 7.4,
+    "working_age_pct": 42.5,
+    "employment_rate": 55.1,
+    "dependency_ratio": 34.7
+  },
+  "01480": {
+    "population": 6485,
+    "higher_edu_pct": 27.3,
+    "median_income": 26779,
+    "upper_income_pct": 18.6,
+    "knowledge_services_pct": 2.4,
+    "working_age_pct": 43.2,
+    "employment_rate": 53.4,
+    "dependency_ratio": 35.1
+  },
+  "01490": {
+    "population": 4620,
+    "higher_edu_pct": 43.4,
+    "median_income": 34171,
+    "upper_income_pct": 38.2,
+    "knowledge_services_pct": 8,
+    "working_age_pct": 43,
+    "employment_rate": 67.3,
+    "dependency_ratio": 33.8
+  },
+  "01510": {
+    "population": 7870,
+    "higher_edu_pct": 30.7,
+    "median_income": 28856,
+    "upper_income_pct": 21.7,
+    "knowledge_services_pct": 8.4,
+    "working_age_pct": 52,
+    "employment_rate": 64.2,
+    "dependency_ratio": 27.8
+  },
+  "01520": {
+    "population": 7688,
+    "higher_edu_pct": 48.6,
+    "median_income": 32815,
+    "upper_income_pct": 35,
+    "knowledge_services_pct": 6.3,
+    "working_age_pct": 49.1,
+    "employment_rate": 68.4,
+    "dependency_ratio": 29.5
+  },
+  "01530": {
+    "population": 956,
+    "higher_edu_pct": 15.5,
+    "median_income": 24992,
+    "upper_income_pct": 10.1,
+    "knowledge_services_pct": 6.1,
+    "working_age_pct": 57.4,
+    "employment_rate": 63.7,
+    "dependency_ratio": 17.5
+  },
+  "01600": {
+    "population": 19159,
+    "higher_edu_pct": 31.5,
+    "median_income": 25475,
+    "upper_income_pct": 15,
+    "knowledge_services_pct": 5.5,
+    "working_age_pct": 43.1,
+    "employment_rate": 46.6,
+    "dependency_ratio": 36.8
+  },
+  "01610": {
+    "population": 5853,
+    "higher_edu_pct": 35.4,
+    "median_income": 27456,
+    "upper_income_pct": 18.8,
+    "knowledge_services_pct": 13.9,
+    "working_age_pct": 49.2,
+    "employment_rate": 57,
+    "dependency_ratio": 29.3
+  },
+  "01620": {
+    "population": 14204,
+    "higher_edu_pct": 28.9,
+    "median_income": 25956,
+    "upper_income_pct": 16.8,
+    "knowledge_services_pct": 27.1,
+    "working_age_pct": 45.6,
+    "employment_rate": 52.2,
+    "dependency_ratio": 34.4
+  },
+  "01630": {
+    "population": 2101,
+    "higher_edu_pct": 51.1,
+    "median_income": 34137,
+    "upper_income_pct": 35.9,
+    "knowledge_services_pct": 4.8,
+    "working_age_pct": 39.8,
+    "employment_rate": 60.3,
+    "dependency_ratio": 39.8
+  },
+  "01640": {
+    "population": 3650,
+    "higher_edu_pct": 42.4,
+    "median_income": 30818,
+    "upper_income_pct": 29.8,
+    "knowledge_services_pct": 7.8,
+    "working_age_pct": 42.5,
+    "employment_rate": 56.1,
+    "dependency_ratio": 36.4
+  },
+  "01650": {
+    "population": 4058,
+    "higher_edu_pct": 43.4,
+    "median_income": 30449,
+    "upper_income_pct": 30.1,
+    "knowledge_services_pct": 5.2,
+    "working_age_pct": 40.4,
+    "employment_rate": 53.9,
+    "dependency_ratio": 38.1
+  },
+  "01660": {
+    "population": 2243,
+    "higher_edu_pct": 35,
+    "median_income": 29587,
+    "upper_income_pct": 24.8,
+    "knowledge_services_pct": 4.1,
+    "working_age_pct": 41.3,
+    "employment_rate": 51.9,
+    "dependency_ratio": 39.4
+  },
+  "01670": {
+    "population": 2925,
+    "higher_edu_pct": 51,
+    "median_income": 33804,
+    "upper_income_pct": 35.3,
+    "knowledge_services_pct": 3.3,
+    "working_age_pct": 43.1,
+    "employment_rate": 63.7,
+    "dependency_ratio": 36.5
+  },
+  "01680": {
+    "population": 2082,
+    "higher_edu_pct": 41.7,
+    "median_income": 32811,
+    "upper_income_pct": 33.9,
+    "knowledge_services_pct": 10.3,
+    "working_age_pct": 42.5,
+    "employment_rate": 62.3,
+    "dependency_ratio": 35.6
+  },
+  "01690": {
+    "population": 5485,
+    "higher_edu_pct": 57.2,
+    "median_income": 37792,
+    "upper_income_pct": 47.7,
+    "knowledge_services_pct": 17.9,
+    "working_age_pct": 41.4,
+    "employment_rate": 67.6,
+    "dependency_ratio": 34.4
+  },
+  "01700": {
+    "population": 13583,
+    "higher_edu_pct": 33.9,
+    "median_income": 27568,
+    "upper_income_pct": 22.4,
+    "knowledge_services_pct": 6,
+    "working_age_pct": 52.9,
+    "employment_rate": 64.5,
+    "dependency_ratio": 23.9
+  },
+  "01710": {
+    "population": 5524,
+    "higher_edu_pct": 36.3,
+    "median_income": 27804,
+    "upper_income_pct": 20.1,
+    "knowledge_services_pct": 5.7,
+    "working_age_pct": 44.6,
+    "employment_rate": 53.4,
+    "dependency_ratio": 35.6
+  },
+  "01720": {
+    "population": 47,
+    "higher_edu_pct": 26.7,
+    "median_income": 28834,
+    "upper_income_pct": 15.6,
+    "knowledge_services_pct": 8.7,
+    "working_age_pct": 44.7,
+    "employment_rate": 63,
+    "dependency_ratio": 21.3
+  },
+  "01730": {
+    "population": 2636,
+    "higher_edu_pct": 37.5,
+    "median_income": 31172,
+    "upper_income_pct": 30.2,
+    "knowledge_services_pct": 3.6,
+    "working_age_pct": 44.3,
+    "employment_rate": 61.8,
+    "dependency_ratio": 35
+  },
+  "01740": {
+    "population": 177,
+    "higher_edu_pct": 39,
+    "median_income": 27956,
+    "upper_income_pct": 26.2,
+    "knowledge_services_pct": 4.6,
+    "working_age_pct": 35,
+    "employment_rate": 50.3,
+    "dependency_ratio": 39
+  },
+  "01750": {
+    "population": 792,
+    "higher_edu_pct": 41,
+    "median_income": 32490,
+    "upper_income_pct": 34,
+    "knowledge_services_pct": 4.8,
+    "working_age_pct": 37.4,
+    "employment_rate": 58,
+    "dependency_ratio": 33.1
+  },
+  "01760": {
+    "population": 1972,
+    "higher_edu_pct": 31.7,
+    "median_income": 29392,
+    "upper_income_pct": 27,
+    "knowledge_services_pct": 2,
+    "working_age_pct": 36.6,
+    "employment_rate": 57.3,
+    "dependency_ratio": 37.1
+  },
+  "01800": {
+    "population": 11355,
+    "higher_edu_pct": 34,
+    "median_income": 29822,
+    "upper_income_pct": 26.6,
+    "knowledge_services_pct": 9.1,
+    "working_age_pct": 41.2,
+    "employment_rate": 59.7,
+    "dependency_ratio": 37
+  },
+  "02100": {
+    "population": 6975,
+    "higher_edu_pct": 66.1,
+    "median_income": 34967,
+    "upper_income_pct": 42.9,
+    "knowledge_services_pct": 27.8,
+    "working_age_pct": 42.4,
+    "employment_rate": 54,
+    "dependency_ratio": 36.2
+  },
+  "02110": {
+    "population": 2790,
+    "higher_edu_pct": 67.4,
+    "median_income": 34296,
+    "upper_income_pct": 41.6,
+    "knowledge_services_pct": 11.4,
+    "working_age_pct": 45.2,
+    "employment_rate": 58.8,
+    "dependency_ratio": 32.1
+  },
+  "02120": {
+    "population": 3055,
+    "higher_edu_pct": 67.4,
+    "median_income": 34817,
+    "upper_income_pct": 41.5,
+    "knowledge_services_pct": 19.9,
+    "working_age_pct": 46.7,
+    "employment_rate": 59.5,
+    "dependency_ratio": 33.4
+  },
+  "02130": {
+    "population": 6723,
+    "higher_edu_pct": 69.7,
+    "median_income": 38711,
+    "upper_income_pct": 50,
+    "knowledge_services_pct": 46,
+    "working_age_pct": 40.9,
+    "employment_rate": 57.2,
+    "dependency_ratio": 38.3
+  },
+  "02140": {
+    "population": 3759,
+    "higher_edu_pct": 60.3,
+    "median_income": 37056,
+    "upper_income_pct": 47,
+    "knowledge_services_pct": 22.1,
+    "working_age_pct": 42.5,
+    "employment_rate": 59.4,
+    "dependency_ratio": 36
+  },
+  "02150": {
+    "population": 4661,
+    "higher_edu_pct": 42,
+    "median_income": 12135,
+    "upper_income_pct": 5.1,
+    "knowledge_services_pct": 47.4,
+    "working_age_pct": 43.6,
+    "employment_rate": 38.5,
+    "dependency_ratio": 3.8
+  },
+  "02160": {
+    "population": 3320,
+    "higher_edu_pct": 69.4,
+    "median_income": 47267,
+    "upper_income_pct": 61.4,
+    "knowledge_services_pct": 49.5,
+    "working_age_pct": 36.3,
+    "employment_rate": 54.1,
+    "dependency_ratio": 39
+  },
+  "02170": {
+    "population": 5919,
+    "higher_edu_pct": 64.6,
+    "median_income": 37904,
+    "upper_income_pct": 48.5,
+    "knowledge_services_pct": 17.5,
+    "working_age_pct": 37.5,
+    "employment_rate": 54.6,
+    "dependency_ratio": 39.2
+  },
+  "02180": {
+    "population": 7742,
+    "higher_edu_pct": 68.4,
+    "median_income": 41646,
+    "upper_income_pct": 55,
+    "knowledge_services_pct": 12.4,
+    "working_age_pct": 39.3,
+    "employment_rate": 61.8,
+    "dependency_ratio": 37.5
+  },
+  "02200": {
+    "population": 14415,
+    "higher_edu_pct": 55.5,
+    "median_income": 31780,
+    "upper_income_pct": 34.8,
+    "knowledge_services_pct": 11.6,
+    "working_age_pct": 51.1,
+    "employment_rate": 65.1,
+    "dependency_ratio": 26.4
+  },
+  "02210": {
+    "population": 12904,
+    "higher_edu_pct": 52.6,
+    "median_income": 31556,
+    "upper_income_pct": 33.3,
+    "knowledge_services_pct": 8.5,
+    "working_age_pct": 43.9,
+    "employment_rate": 54.1,
+    "dependency_ratio": 37.6
+  },
+  "02230": {
+    "population": 22927,
+    "higher_edu_pct": 47.6,
+    "median_income": 29405,
+    "upper_income_pct": 30.7,
+    "knowledge_services_pct": 9.2,
+    "working_age_pct": 46.9,
+    "employment_rate": 54.8,
+    "dependency_ratio": 33.9
+  },
+  "02240": {
+    "population": 2726,
+    "higher_edu_pct": 66.3,
+    "median_income": 38519,
+    "upper_income_pct": 49.7,
+    "knowledge_services_pct": 20.6,
+    "working_age_pct": 41.5,
+    "employment_rate": 59.4,
+    "dependency_ratio": 34.4
+  },
+  "02250": {
+    "population": 7410,
+    "higher_edu_pct": 36.5,
+    "median_income": 26872,
+    "upper_income_pct": 23.7,
+    "knowledge_services_pct": 8.8,
+    "working_age_pct": 50.2,
+    "employment_rate": 59.5,
+    "dependency_ratio": 27.8
+  },
+  "02260": {
+    "population": 3740,
+    "higher_edu_pct": 51.3,
+    "median_income": 32171,
+    "upper_income_pct": 35.9,
+    "knowledge_services_pct": 7.2,
+    "working_age_pct": 38.9,
+    "employment_rate": 58.2,
+    "dependency_ratio": 34.8
+  },
+  "02270": {
+    "population": 4620,
+    "higher_edu_pct": 44.1,
+    "median_income": 29413,
+    "upper_income_pct": 30.1,
+    "knowledge_services_pct": 11.8,
+    "working_age_pct": 44.6,
+    "employment_rate": 60.9,
+    "dependency_ratio": 26.8
+  },
+  "02280": {
+    "population": 4764,
+    "higher_edu_pct": 46.9,
+    "median_income": 32265,
+    "upper_income_pct": 34.9,
+    "knowledge_services_pct": 8.9,
+    "working_age_pct": 44.2,
+    "employment_rate": 62.3,
+    "dependency_ratio": 32.8
+  },
+  "02300": {
+    "population": 2580,
+    "higher_edu_pct": 63.2,
+    "median_income": 40331,
+    "upper_income_pct": 52.7,
+    "knowledge_services_pct": 16.3,
+    "working_age_pct": 35.8,
+    "employment_rate": 62.6,
+    "dependency_ratio": 36.2
+  },
+  "02320": {
+    "population": 17639,
+    "higher_edu_pct": 43,
+    "median_income": 28823,
+    "upper_income_pct": 27.4,
+    "knowledge_services_pct": 6.3,
+    "working_age_pct": 39.7,
+    "employment_rate": 48.9,
+    "dependency_ratio": 39.7
+  },
+  "02330": {
+    "population": 12340,
+    "higher_edu_pct": 49.4,
+    "median_income": 32290,
+    "upper_income_pct": 37.5,
+    "knowledge_services_pct": 16.2,
+    "working_age_pct": 43.2,
+    "employment_rate": 60.1,
+    "dependency_ratio": 32.8
+  },
+  "02340": {
+    "population": 4889,
+    "higher_edu_pct": 55.4,
+    "median_income": 35295,
+    "upper_income_pct": 40.8,
+    "knowledge_services_pct": 17.5,
+    "working_age_pct": 42.2,
+    "employment_rate": 64.3,
+    "dependency_ratio": 36.9
+  },
+  "02360": {
+    "population": 9801,
+    "higher_edu_pct": 50.1,
+    "median_income": 30994,
+    "upper_income_pct": 34,
+    "knowledge_services_pct": 10.1,
+    "working_age_pct": 38.4,
+    "employment_rate": 51.9,
+    "dependency_ratio": 38.7
+  },
+  "02380": {
+    "population": 626,
+    "higher_edu_pct": 59.3,
+    "median_income": 37862,
+    "upper_income_pct": 48.3,
+    "knowledge_services_pct": 27.7,
+    "working_age_pct": 29.7,
+    "employment_rate": 46.1,
+    "dependency_ratio": 41.5
+  },
+  "02510": {
+    "population": 453,
+    "higher_edu_pct": 42.5,
+    "median_income": 32196,
+    "upper_income_pct": 32.8,
+    "knowledge_services_pct": 21.9,
+    "working_age_pct": 38.9,
+    "employment_rate": 61.1,
+    "dependency_ratio": 34
+  },
+  "02600": {
+    "population": 17336,
+    "higher_edu_pct": 43.9,
+    "median_income": 27766,
+    "upper_income_pct": 24.3,
+    "knowledge_services_pct": 47.3,
+    "working_age_pct": 52.7,
+    "employment_rate": 60.5,
+    "dependency_ratio": 27
+  },
+  "02610": {
+    "population": 7020,
+    "higher_edu_pct": 44.5,
+    "median_income": 27149,
+    "upper_income_pct": 27.2,
+    "knowledge_services_pct": 4.2,
+    "working_age_pct": 49.4,
+    "employment_rate": 55.7,
+    "dependency_ratio": 31.2
+  },
+  "02620": {
+    "population": 8783,
+    "higher_edu_pct": 44.8,
+    "median_income": 29922,
+    "upper_income_pct": 30.9,
+    "knowledge_services_pct": 10.6,
+    "working_age_pct": 41.6,
+    "employment_rate": 55.2,
+    "dependency_ratio": 36.3
+  },
+  "02630": {
+    "population": 4160,
+    "higher_edu_pct": 47,
+    "median_income": 29973,
+    "upper_income_pct": 31,
+    "knowledge_services_pct": 13.7,
+    "working_age_pct": 47.8,
+    "employment_rate": 60.1,
+    "dependency_ratio": 30.4
+  },
+  "02650": {
+    "population": 12084,
+    "higher_edu_pct": 50.8,
+    "median_income": 30086,
+    "upper_income_pct": 30.2,
+    "knowledge_services_pct": 10.5,
+    "working_age_pct": 51,
+    "employment_rate": 58.7,
+    "dependency_ratio": 31.4
+  },
+  "02660": {
+    "population": 6457,
+    "higher_edu_pct": 57.3,
+    "median_income": 35237,
+    "upper_income_pct": 44,
+    "knowledge_services_pct": 9.3,
+    "working_age_pct": 41.4,
+    "employment_rate": 60.1,
+    "dependency_ratio": 34.6
+  },
+  "02680": {
+    "population": 3829,
+    "higher_edu_pct": 64.1,
+    "median_income": 38122,
+    "upper_income_pct": 48.7,
+    "knowledge_services_pct": 12.7,
+    "working_age_pct": 49.9,
+    "employment_rate": 71.3,
+    "dependency_ratio": 34
+  },
+  "02700": {
+    "population": 10100,
+    "higher_edu_pct": 65.4,
+    "median_income": 38714,
+    "upper_income_pct": 50.1,
+    "knowledge_services_pct": 10.2,
+    "working_age_pct": 35.1,
+    "employment_rate": 52.5,
+    "dependency_ratio": 40.7
+  },
+  "02710": {
+    "population": 6154,
+    "higher_edu_pct": 51.2,
+    "median_income": 31984,
+    "upper_income_pct": 34.8,
+    "knowledge_services_pct": 5,
+    "working_age_pct": 40,
+    "employment_rate": 54.2,
+    "dependency_ratio": 37.7
+  },
+  "02720": {
+    "population": 2949,
+    "higher_edu_pct": 49.2,
+    "median_income": 32031,
+    "upper_income_pct": 35.5,
+    "knowledge_services_pct": 7,
+    "working_age_pct": 39.7,
+    "employment_rate": 55.4,
+    "dependency_ratio": 39.1
+  },
+  "02730": {
+    "population": 4654,
+    "higher_edu_pct": 62.9,
+    "median_income": 39981,
+    "upper_income_pct": 52.8,
+    "knowledge_services_pct": 19.8,
+    "working_age_pct": 34.2,
+    "employment_rate": 58.2,
+    "dependency_ratio": 38.4
+  },
+  "02740": {
+    "population": 3117,
+    "higher_edu_pct": 47.7,
+    "median_income": 32122,
+    "upper_income_pct": 34.8,
+    "knowledge_services_pct": 0.8,
+    "working_age_pct": 44.5,
+    "employment_rate": 64.5,
+    "dependency_ratio": 30.5
+  },
+  "02750": {
+    "population": 5940,
+    "higher_edu_pct": 51.4,
+    "median_income": 32824,
+    "upper_income_pct": 38.6,
+    "knowledge_services_pct": 11.8,
+    "working_age_pct": 45.7,
+    "employment_rate": 62,
+    "dependency_ratio": 31.2
+  },
+  "02760": {
+    "population": 15512,
+    "higher_edu_pct": 37.2,
+    "median_income": 27445,
+    "upper_income_pct": 23.1,
+    "knowledge_services_pct": 7.1,
+    "working_age_pct": 46.9,
+    "employment_rate": 55.4,
+    "dependency_ratio": 33.7
+  },
+  "02770": {
+    "population": 11271,
+    "higher_edu_pct": 34.3,
+    "median_income": 26218,
+    "upper_income_pct": 22.3,
+    "knowledge_services_pct": 6.1,
+    "working_age_pct": 42.7,
+    "employment_rate": 49.9,
+    "dependency_ratio": 34.4
+  },
+  "02780": {
+    "population": 14251,
+    "higher_edu_pct": 50.6,
+    "median_income": 34221,
+    "upper_income_pct": 39.6,
+    "knowledge_services_pct": 7.1,
+    "working_age_pct": 46.4,
+    "employment_rate": 65.7,
+    "dependency_ratio": 33.9
+  },
+  "02810": {
+    "population": 1790,
+    "higher_edu_pct": 52.2,
+    "median_income": 36381,
+    "upper_income_pct": 44.9,
+    "knowledge_services_pct": 4.9,
+    "working_age_pct": 42.7,
+    "employment_rate": 65,
+    "dependency_ratio": 33.5
+  },
+  "02820": {
+    "population": 1708,
+    "higher_edu_pct": 48.4,
+    "median_income": 33924,
+    "upper_income_pct": 38.9,
+    "knowledge_services_pct": 7.2,
+    "working_age_pct": 39.6,
+    "employment_rate": 60.4,
+    "dependency_ratio": 35.8
+  },
+  "02860": {
+    "population": 616,
+    "higher_edu_pct": 42.1,
+    "median_income": 30337,
+    "upper_income_pct": 31.9,
+    "knowledge_services_pct": 14.7,
+    "working_age_pct": 32.3,
+    "employment_rate": 54.4,
+    "dependency_ratio": 39.1
+  },
+  "02920": {
+    "population": 6040,
+    "higher_edu_pct": 47.1,
+    "median_income": 34807,
+    "upper_income_pct": 40.6,
+    "knowledge_services_pct": 4.4,
+    "working_age_pct": 42.1,
+    "employment_rate": 66.4,
+    "dependency_ratio": 34.6
+  },
+  "02940": {
+    "population": 10987,
+    "higher_edu_pct": 47.3,
+    "median_income": 32260,
+    "upper_income_pct": 34.6,
+    "knowledge_services_pct": 10.1,
+    "working_age_pct": 41.7,
+    "employment_rate": 60.3,
+    "dependency_ratio": 34.2
+  },
+  "02970": {
+    "population": 3675,
+    "higher_edu_pct": 44.3,
+    "median_income": 33843,
+    "upper_income_pct": 38.5,
+    "knowledge_services_pct": 3.8,
+    "working_age_pct": 39,
+    "employment_rate": 62.8,
+    "dependency_ratio": 35.6
+  },
+  "02980": {
+    "population": 218,
+    "higher_edu_pct": 23.5,
+    "median_income": 27922,
+    "upper_income_pct": 24,
+    "knowledge_services_pct": 0,
+    "working_age_pct": 42.2,
+    "employment_rate": 53.3,
+    "dependency_ratio": 36.7
+  },
+  "04260": {
+    "population": 6644,
+    "higher_edu_pct": 29.5,
+    "median_income": 28205,
+    "upper_income_pct": 20.6,
+    "knowledge_services_pct": 6.7,
+    "working_age_pct": 42.2,
+    "employment_rate": 56,
+    "dependency_ratio": 35.7
+  },
+  "04320": {
+    "population": 5145,
+    "higher_edu_pct": 33.2,
+    "median_income": 30383,
+    "upper_income_pct": 26.2,
+    "knowledge_services_pct": 4,
+    "working_age_pct": 40.9,
+    "employment_rate": 58.4,
+    "dependency_ratio": 39
+  }
+}

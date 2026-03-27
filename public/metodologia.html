@@ -242,7 +242,138 @@ konvertoitavissa[puolue] = puolueen_äänet &minus; valittujen_ehdokkaiden_ään
 
 <p><strong>Perustelu:</strong> Näiden ehdokkaiden äänestäjät ovat potentiaalisimpia konvertoitavia: he äänestivät ideologisesti lähellä olevaa puoluetta, mutta ehdokas ei menestynyt. Nämä äänestäjät saattavat olla avoimempia vaihtoehdoille seuraavissa vaaleissa.</p>
 
-<h2>7. Kartanäkymien väriskaalojen yhteenveto</h2>
+<h2>7. Postinumeroaluenäkymä</h2>
+
+<p>Postinumeroalueet-näkymä aggregoi äänestysaluetason vaalitulokset postinumeroaluetasolle. Pääkaupunkiseudulta tunnistetaan 172 postinumeroaluetta (Helsinki 00xxx, Espoo/Kauniainen 02xxx, Vantaa 01xxx).</p>
+
+<h3>Äänestysalueiden kohdistaminen postinumeroalueille</h3>
+<p>Äänestysalueet kohdistetaan postinumeroalueille geometrisesti: äänestysalueen keskipiste (centroidi) sijoitetaan siihen postinumeroalueeseen, jonka sisällä se sijaitsee (point-in-polygon). Yhdelle postinumeroalueelle voi kuulua useita äänestysalueita.</p>
+
+<h3>Aggregoidut tunnusluvut</h3>
+<p>Postinumeroalueen vaalitulokset (äänioikeutetut, äänestäneet, puolueäänet, konversiopisteet) ovat postinumeroalueeseen kuuluvien äänestysalueiden summia tai painotettuja keskiarvoja. Konversiopisteet (<span class="var">score</span>) painotetaan äänioikeutettujen määrällä (<span class="var">oik</span>).</p>
+
+<h2>8. Sosioekonominen konversioanalyysi</h2>
+
+<p>Sosioekonominen konversioanalyysi yhdistää äänestysaluetason vaalitulokset Tilastokeskuksen PAAVO-postinumeroaluedataan. Tavoitteena on tunnistaa postinumeroalueet, joissa Liberaalipuolueen todennäköinen äänestäjäprofiili vastaa parhaiten alueen sosioekonomista rakennetta.</p>
+
+<h3>Datalähde: Tilastokeskus PAAVO</h3>
+
+<p>Sosioekonominen data on peräisin Tilastokeskuksen avoimesta <a href="https://pxdata.stat.fi/PxWeb/pxweb/fi/Postinumeroalueittainen_avoin_tieto/" target="_blank" rel="noopener noreferrer">Postinumeroalueittaisesta avoimesta tiedosta (PAAVO)</a>. Data haetaan PxWeb JSON-stat2 -rajapinnasta build-aikaisesti Node.js-skriptillä (<span class="var">scripts/fetch-paavo.js</span>).</p>
+
+<p><strong>Käytetyt taulut:</strong></p>
+<table>
+  <tr><th>Taulu</th><th>Sisältö</th><th>Vuosi</th><th>Käytetyt muuttujat</th></tr>
+  <tr><td>paavo_pxt_12ey</td><td>Asukasrakenne</td><td>2024</td><td>he_vakiy, he_25_29 – he_50_54</td></tr>
+  <tr><td>paavo_pxt_12ez</td><td>Koulutusaste</td><td>2024</td><td>ko_ika18y, ko_al_kork, ko_yl_kork</td></tr>
+  <tr><td>paavo_pxt_12f1</td><td>Tulot</td><td>2024</td><td>hr_tuy, hr_mtu, hr_hy_tul</td></tr>
+  <tr><td>paavo_pxt_12f5</td><td>Toimipaikat toimialoittain</td><td>2023*</td><td>tp_tyopy, tp_j_info, tp_k_raho, tp_m_erik</td></tr>
+  <tr><td>paavo_pxt_12f6</td><td>Pääasiallinen toiminta</td><td>2024</td><td>pt_vakiy, pt_tyoll, pt_tyott, pt_0_14, pt_elakel</td></tr>
+</table>
+
+<div class="note warn">
+<strong>*Huom:</strong> Taulun 12f5 (toimipaikat toimialoittain) vuoden 2024 data ei ollut saatavilla haun hetkellä, joten käytetään vuoden 2023 dataa. Muiden taulujen data on vuodelta 2024.
+</div>
+
+<p>Datasta kattaa 169 PKS-postinumeroaluetta. Postinumero 02290 puuttuu PAAVO-aineistosta ja jätetään pois analyysista. Alueet, joissa asukasmäärä on alle 30, on suodatettu pois Tilastokeskuksen tietosuojakäytännön vuoksi.</p>
+
+<h3>Indikaattorien perustelut</h3>
+
+<p>Liberaalipuolueen todennäköinen äänestäjäprofiili — klassisen liberaalin arvopohjan perusteella (markkinamyönteisyys, yksilönvapaus, deregulaatio, yrittäjyys) — ohjaa indikaattorivalintoja:</p>
+
+<table>
+  <tr><th>Indikaattori</th><th>Kaava</th><th>Perustelu</th></tr>
+  <tr>
+    <td><strong>Korkeakoulutettujen osuus</strong></td>
+    <td>(ko_al_kork + ko_yl_kork) / ko_ika18y</td>
+    <td>Koulutus on vahvin yksittäinen ennustaja klassisen liberaalin arvopohjan omaksumiselle. Korkeakoulutetut ovat alttiimpia vapaakauppa-, sääntelyn purkamis- ja yksilönvapausargumenteille.</td>
+  </tr>
+  <tr>
+    <td><strong>Mediaanitulot</strong></td>
+    <td>hr_mtu</td>
+    <td>Korkeampi tulotaso korreloi taloudellisen liberalismin kanssa: kiinnostus verotuspoliittisiin ja sääntelyn purkamiseen liittyviin kysymyksiin.</td>
+  </tr>
+  <tr>
+    <td><strong>Ylimmän tuloluokan osuus</strong></td>
+    <td>hr_hy_tul / hr_tuy</td>
+    <td>Ylin tuloluokka edustaa deregulaation ja markkinatalousajattelun ydinkannattajakuntaa.</td>
+  </tr>
+  <tr>
+    <td><strong>Tietointensiiviset palvelut (J+K+M)</strong></td>
+    <td>(tp_j_info + tp_k_raho + tp_m_erik) / tp_tyopy</td>
+    <td>Yrittäjä- ja freelancer-proxy. Tilastokeskuksen ammattiasematieto ei ole saatavilla postinumerotasolla, joten käytetään tietointensiivisten palvelualojen osuutta: ICT (J), rahoitus ja vakuutus (K), ammatillinen, tieteellinen ja tekninen toiminta (M). Nämä alat korreloivat vahvasti yrittäjyyden, tietotyöläisten ja freelancer-toiminnan kanssa.</td>
+  </tr>
+  <tr>
+    <td><strong>Työikäisten (25–54) osuus</strong></td>
+    <td>(he_25_29 + ... + he_50_54) / he_vakiy</td>
+    <td>Kohderyhmädemografia: 25–54-vuotiaat ovat taloudellisesti aktiivisin ikäryhmä ja todennäköisin liberaalin puolueen kohderyhmä.</td>
+  </tr>
+  <tr>
+    <td><strong>Työllisyysaste</strong></td>
+    <td>pt_tyoll / (pt_vakiy &minus; pt_0_14)</td>
+    <td>Taloudellisesti aktiivinen väestöpohja. Korkea työllisyysaste viittaa alueeseen, jossa on paljon potentiaalisia veronmaksajia, jotka voivat hyötyä liberaalista talouspolitiikasta.</td>
+  </tr>
+  <tr>
+    <td><strong>Huoltosuhde</strong> (käänteinen)</td>
+    <td>(pt_0_14 + pt_elakel) / pt_vakiy</td>
+    <td>Matala huoltosuhde (vähän lapsia ja eläkeläisiä suhteessa väestöön) viittaa alueeseen, jossa asukkaat ovat vähemmän riippuvaisia julkisista palveluista ja siten avoimempia markkinaehtoisille ratkaisuille. Arvo käännetään pisteytystä varten: matala huoltosuhde → korkea pistemäärä.</td>
+  </tr>
+</table>
+
+<h3>Sosioekonominen pisteytys</h3>
+
+<p>Jokainen 7 indikaattorista muunnetaan percentilerankiksi kaikkien 169 postinumeroalueen joukossa (sama metodi kuin vaalinäkymässä). Percentilerankit painotetaan ja summataan:</p>
+
+<div class="formula">
+socio_score = 100 &times; (<br>
+&nbsp;&nbsp;0.22 &times; rank(korkeakoulutetut)<br>
+&nbsp;+ 0.18 &times; rank(mediaanitulot)<br>
+&nbsp;+ 0.12 &times; rank(ylin_tuloluokka)<br>
+&nbsp;+ 0.15 &times; rank(tietoint_palvelut)<br>
+&nbsp;+ 0.13 &times; rank(työikäiset_25_54)<br>
+&nbsp;+ 0.12 &times; rank(työllisyysaste)<br>
+&nbsp;+ 0.08 &times; inverse_rank(huoltosuhde)<br>
+)
+</div>
+
+<table>
+  <tr><th>Komponentti</th><th>Paino</th><th>Miksi tämä paino</th></tr>
+  <tr><td>Korkeakoulutettujen osuus</td><td>22 %</td><td>Vahvin ennustaja liberaalille äänestäjäprofiilille — suurin paino.</td></tr>
+  <tr><td>Mediaanitulot</td><td>18 %</td><td>Toiseksi vahvin ennustaja. Korreloi taloudellisen liberalismin kanssa.</td></tr>
+  <tr><td>Tietointensiiviset palvelut (J+K+M)</td><td>15 %</td><td>Yrittäjä/freelancer-proxy antaa merkittävän painon, mutta ei suurinta koska on epäsuora mittari.</td></tr>
+  <tr><td>Työikäisten osuus</td><td>13 %</td><td>Demografinen kohderyhmätieto, tukeva rooli.</td></tr>
+  <tr><td>Ylimmän tuloluokan osuus</td><td>12 %</td><td>Täydentää mediaanituloja: erottelee rikkaiden keskittymät.</td></tr>
+  <tr><td>Työllisyysaste</td><td>12 %</td><td>Taloudellisen aktiivisuuden mittari, sama paino kuin tuloluokka.</td></tr>
+  <tr><td>Huoltosuhde (käänteinen)</td><td>8 %</td><td>Pienin paino, sillä matala huoltosuhde on heikoin ennustaja — mutta lisää erottelukykyä.</td></tr>
+</table>
+
+<h3>Vaalitulospisteet postinumeroalueittain</h3>
+
+<p>Postinumeroalueen vaalitulospistemäärä lasketaan äänioikeutettujen määrällä painotettuna keskiarvona siihen kuuluvien äänestysalueiden konversiopisteistä:</p>
+
+<div class="formula">
+election_score = &Sigma;(oik<sub>i</sub> &times; score<sub>i</sub>) / &Sigma;(oik<sub>i</sub>)
+</div>
+
+<p>missä <span class="var">i</span> käy läpi postinumeroalueeseen kuuluvat äänestysalueet, <span class="var">score<sub>i</sub></span> on äänestysalueen konversiopisteet ja <span class="var">oik<sub>i</sub></span> äänioikeutetut.</p>
+
+<h3>Yhdistelmäpisteytys</h3>
+
+<div class="formula">
+combined_score = 0.50 &times; election_score + 0.50 &times; socio_score
+</div>
+
+<p><strong>Perustelu:</strong> Yhdistelmäpisteytys antaa yhtä suuren painon vaalituloksiin perustuvalle konversiopotentiaalille ja alueen sosioekonomiselle profiilille. Tämä antaa kattavamman kuvan kuin kumpikaan osa-alue yksin: alueen sosioekonominen profiili voi olla otollinen, mutta jos oikeistopooli on pieni, konversio on vaikeampaa — ja toisin päin.</p>
+
+<h3>Näkymän alatilat</h3>
+
+<p>Sosioekonomisessa kartassa voi vaihtaa kolmen alatilan välillä:</p>
+<ul>
+  <li><strong>Yhdistelmä</strong> — kartta ja ranking järjestetty <span class="var">combined_score</span>:n mukaan</li>
+  <li><strong>Sosioekonominen</strong> — vain sosioekonominen alapiste (<span class="var">socio_score</span>)</li>
+  <li><strong>Vaalitulos</strong> — vain vaalitulospisteet (<span class="var">election_score</span>)</li>
+</ul>
+
+<h2>9. Kartanäkymien väriskaalojen yhteenveto</h2>
 
 <table>
   <tr><th>Näkymä</th><th>Mittari</th><th>Suunta</th><th>Skaala</th></tr>
@@ -252,24 +383,53 @@ konvertoitavissa[puolue] = puolueen_äänet &minus; valittujen_ehdokkaiden_ään
   <tr><td>LIBE%</td><td>libe_pct (%)</td><td>Tummempi = korkeampi</td><td>Keltainen &rarr; ruskea</td></tr>
   <tr><td>Suurin puolue</td><td>winning</td><td>Puolueen väri</td><td>Puhdas puolueväri</td></tr>
   <tr><td>Puolueet + nukkuvat</td><td>all_score (0–100)</td><td>Tummempi = korkeampi</td><td>Suurimman puolueen väri: vaalea &rarr; tumma</td></tr>
+  <tr><td>Sosioekonominen analyysi</td><td>combined_score (0–100)</td><td>Tummempi = korkeampi</td><td>Kulta (#fef3c7) &rarr; keltainen (#F9B000) &rarr; sininen (#1d4ed8) &rarr; tummansininen (#172554)</td></tr>
 </table>
 
 <div class="note">
 <strong>Konsistenssi:</strong> Molemmissa potentiaalinäkymissä alueen perusväri kertoo suurimman puolueen. Sävy kertoo potentiaalin tason.
 </div>
 
-<h2>8. Rajoitukset ja kehityskohteet</h2>
+<h2>10. Rajoitukset ja kehityskohteet</h2>
 
+<h3>Vaalitulosaineisto</h3>
 <ul>
   <li>Pisteet ovat suhteellisia tämän aineiston sisällä. Jos aineisto laajenee tai muuttuu, myös percentilerankit muuttuvat.</li>
   <li>Kaava ei huomioi alueellisia eroja arvoissa, demografiassa tai kampanjan laadussa.</li>
   <li>Nukkuvien aktivointipotentiaali on epävarma: kaikki nukkuvat eivät ole realistisesti mobilisoitavissa.</li>
   <li>Puoluekentän hajanaisuus ja kilpailullisuus ovat vain epäsuoria mittareita alueen avoimuudelle.</li>
-  <li>Data on vuodelta 2023, eikä huomioi väestönmuutoksia tai myöhempää poliittista dynamiikkaa.</li>
+  <li>Vaalitulosdata on vuodelta 2023, eikä huomioi väestönmuutoksia tai myöhempää poliittista dynamiikkaa.</li>
 </ul>
 
+<h3>Sosioekonominen analyysi</h3>
+<ul>
+  <li>PAAVO-taulun 12f5 (toimipaikat toimialoittain) data on vuodelta 2023, muut taulut vuodelta 2024. Toimialadatan ja muun datan välillä on vuoden aikaviive.</li>
+  <li>Tietointensiivisten palvelualojen osuus (J+K+M) on epäsuora proxy yrittäjyydelle ja freelancer-työlle. Todellinen ammattiasematieto (yrittäjä vs. palkansaaja) ei ole saatavilla postinumerotasolla.</li>
+  <li>Postinumeroalue 02290 puuttuu PAAVO-aineistosta kokonaan.</li>
+  <li>Sosioekonominen data (2023–2024) ja vaalitulokset (2023) ovat eri ajankohdilta. Alueiden sosioekonominen profiili on voinut muuttua.</li>
+  <li>Äänestäjäprofiilioletus (korkeakoulutetut, hyvätuloiset, yrittäjät) perustuu klassisen liberalismin yleiseen teoreettiseen pohjaan, ei empiiriseen LIBEn äänestäjätutkimukseen Suomessa.</li>
+  <li>Komponenttipainot ovat asiantuntija-arvioita, eivät tilastollisesti estimoituja.</li>
+</ul>
+
+<h2>11. Datan lisenssit</h2>
+
+<p>Kaikki sovelluksessa käytetyt ulkoiset datalähteet ovat avoimesti lisensoituja:</p>
+
+<table>
+  <tr><th>Lähde</th><th>Lisenssi</th></tr>
+  <tr><td><a href="https://tulospalvelu.vaalit.fi/EKV-2023/fi/index.html" target="_blank" rel="noopener noreferrer">Oikeusministeriö — Tieto- ja tulospalvelu, Eduskuntavaalit 2023</a></td><td>CC BY 4.0</td></tr>
+  <tr><td><a href="https://hri.fi/data/fi/dataset/paakaupunkiseudun-aanestysaluejako" target="_blank" rel="noopener noreferrer">Helsinki Region Infoshare — Äänestysaluejako</a></td><td>CC BY 4.0</td></tr>
+  <tr><td><a href="https://www.maanmittauslaitos.fi/kartat-ja-paikkatieto/aineistot-ja-rajapinnat/tuotekuvaukset/hallinnolliset-aluejaot-vektori" target="_blank" rel="noopener noreferrer">Maanmittauslaitos — Hallinnolliset aluejaot</a></td><td>CC BY 4.0</td></tr>
+  <tr><td><a href="https://pxdata.stat.fi/PxWeb/pxweb/fi/Postinumeroalueittainen_avoin_tieto/" target="_blank" rel="noopener noreferrer">Tilastokeskus — PAAVO (Postinumeroalueittainen avoin tieto)</a></td><td>CC BY 4.0</td></tr>
+</table>
+
+<p>Sovelluksen lähdekoodi on lisensoitu <a href="https://github.com/juntunen-ai/liberaali-voitto/blob/master/LICENSE" target="_blank" rel="noopener noreferrer">MIT-lisenssillä</a>.</p>
+
 <p style="margin-top:32px;font-size:12px;color:#6e7681;border-top:1px solid #21262d;padding-top:16px">
-  Metodologian toteutuksen voi tarkistaa lähdekoodista: <a href="https://github.com/juntunen-ai/liberaali-voitto/blob/master/src/modes.js">modes.js</a>
+  Metodologian toteutuksen voi tarkistaa lähdekoodista:
+  <a href="https://github.com/juntunen-ai/liberaali-voitto/blob/master/src/modes.js">modes.js</a> (vaalitulospisteet),
+  <a href="https://github.com/juntunen-ai/liberaali-voitto/blob/master/src/socio-modes.js">socio-modes.js</a> (sosioekonominen pisteytys),
+  <a href="https://github.com/juntunen-ai/liberaali-voitto/blob/master/src/score-utils.js">score-utils.js</a> (jaetut apufunktiot)
 </p>
 
 </body>

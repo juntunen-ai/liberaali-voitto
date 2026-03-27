@@ -4,11 +4,13 @@ import { initMap, updateMapColors, highlightArea } from './map.js';
 import { showInfo, buildAAlueet, buildLegend, switchTab } from './sidebar.js';
 import { buildRanking } from './ranking.js';
 import { initPostiMap, updatePostiColors } from './posti.js';
+import { initSocioMap, updateSocioDistrictColors } from './socio.js';
+import { computeSocioScores } from './socio-modes.js';
 import { buildPostalDistrictMapping } from './geo-utils.js';
 
 // Load all data in parallel (use BASE_URL for GitHub Pages subpath)
 const base = import.meta.env.BASE_URL;
-const [geo, municipalBorders, electedVertaus, aAlueet, libePerArea, convertTargets, electedAreaVotes, postiGeo] =
+const [geo, municipalBorders, electedVertaus, aAlueet, libePerArea, convertTargets, electedAreaVotes, postiGeo, paavoSocio] =
   await Promise.all([
     fetch(base + 'data/geo.json').then(r => r.json()),
     fetch(base + 'data/municipal_borders.json').then(r => r.json()),
@@ -18,6 +20,7 @@ const [geo, municipalBorders, electedVertaus, aAlueet, libePerArea, convertTarge
     fetch(base + 'data/convert_targets.json').then(r => r.json()),
     fetch(base + 'data/elected_area_votes.json').then(r => r.json()),
     fetch(base + 'data/postinumero.json').then(r => r.json()),
+    fetch(base + 'data/paavo_socio.json').then(r => r.json()),
   ]);
 
 // Compute postal→district mapping BEFORE any projection (uses WGS84 coordinates)
@@ -81,25 +84,61 @@ function setMode(mode) {
   );
   updateMapColors(areas, mode);
   updatePostiColors(mode);
+  updateSocioDistrictColors(mode);
   buildAAlueet(aAlueet, mode);
   buildLegend(mode, LEGEND_ITEMS, SUBTITLES);
   buildRanking(geo.features, mode);
   refreshSelection();
 }
 
-// Page toggling: election view vs posti view
+// Compute election scores per postal area (weighted avg of district scores by oik)
+const electionScoresPerPostal = {};
+for (const [posno, districtNames] of postiDistrictMap.entries()) {
+  let totalOik = 0, weightedScore = 0;
+  for (const name of districtNames) {
+    const feat = geo.features.find(f => f.properties.nimi === name);
+    if (feat && feat.properties.score != null && feat.properties.oik > 0) {
+      totalOik += feat.properties.oik;
+      weightedScore += feat.properties.oik * feat.properties.score;
+    }
+  }
+  if (totalOik > 0) electionScoresPerPostal[posno] = weightedScore / totalOik;
+}
+
+// Compute socioeconomic scores (combined = 50% election + 50% socio)
+const socioScores = computeSocioScores(paavoSocio, electionScoresPerPostal);
+
+// Page toggling: election view vs posti view vs socio view
 let postiInited = false;
-let postiActive = false;
+let socioInited = false;
+let activePage = 'election'; // election | posti | socio
+
+function showPage(page) {
+  activePage = page;
+  document.getElementById('page-election').classList.toggle('active', page === 'election');
+  document.getElementById('page-posti').classList.toggle('active', page === 'posti');
+  document.getElementById('page-socio').classList.toggle('active', page === 'socio');
+  document.getElementById('btn-posti').classList.toggle('active', page === 'posti');
+  document.getElementById('btn-socio').classList.toggle('active', page === 'socio');
+}
 
 function togglePosti() {
-  postiActive = !postiActive;
-  document.getElementById('page-election').classList.toggle('active', !postiActive);
-  document.getElementById('page-posti').classList.toggle('active', postiActive);
-  document.getElementById('btn-posti').classList.toggle('active', postiActive);
+  showPage(activePage === 'posti' ? 'election' : 'posti');
 
-  if (postiActive && !postiInited) {
+  if (activePage === 'posti' && !postiInited) {
     postiInited = true;
     initPostiMap(postiGeo, geo, postiDistrictMap, currentMode, {
+      electedAreaVotes
+    });
+  }
+}
+
+function toggleSocio() {
+  showPage(activePage === 'socio' ? 'election' : 'socio');
+
+  if (activePage === 'socio' && !socioInited) {
+    socioInited = true;
+    initSocioMap(postiGeo, geo, postiDistrictMap, socioScores, currentMode, {
       electedAreaVotes
     });
   }
@@ -111,6 +150,7 @@ window.__selectAAlue = selectAAlue;
 window.setMode       = setMode;
 window.switchTab     = switchTab;
 window.togglePosti   = togglePosti;
+window.toggleSocio   = toggleSocio;
 
 // Initialize
 areas = initMap(geo, municipalBorders, selectArea, clearSelection);

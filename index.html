@@ -21,6 +21,7 @@
     <button class="toggle-btn"        id="btn-all"    onclick="setMode('all')">Puolueet + nukkuvat</button>
     <span class="btn-separator"></span>
     <button class="toggle-btn"        id="btn-posti"  onclick="window.togglePosti()">Postinumeroalueet</button>
+    <button class="toggle-btn"        id="btn-socio"  onclick="window.toggleSocio()">Sosioekonominen analyysi</button>
   </div>
 </div>
 <div id="page-election" class="page active">
@@ -65,6 +66,29 @@
       </div>
       <div id="posti-info"></div>
       <div id="posti-list"></div>
+    </div>
+  </div>
+</div>
+<div id="page-socio" class="page">
+  <div id="socio-main">
+    <div id="socio-map-container"><svg id="socio-map"></svg></div>
+    <div id="socio-sidebar">
+      <div id="socio-header">
+        <h3 class="socio-title">Sosioekonominen konversioanalyysi – PKS</h3>
+        <div class="socio-legend">
+          <span class="socio-legend-dot" style="background:#172554"></span> Korkea
+          <span class="socio-legend-dot" style="background:#1d4ed8"></span> Keskitason yläp.
+          <span class="socio-legend-dot" style="background:#F9B000"></span> Keskitaso
+          <span class="socio-legend-dot" style="background:#fef3c7"></span> Matala
+        </div>
+        <div id="socio-mode-buttons">
+          <button class="socio-mode-btn active" id="socio-mode-combined" onclick="window.__setSocioMode('combined')">Yhdistelmä</button>
+          <button class="socio-mode-btn" id="socio-mode-socio" onclick="window.__setSocioMode('socio')">Sosioekonominen</button>
+          <button class="socio-mode-btn" id="socio-mode-election" onclick="window.__setSocioMode('election')">Vaalitulos</button>
+        </div>
+      </div>
+      <div id="socio-info"></div>
+      <div id="socio-list"></div>
     </div>
   </div>
 </div>
